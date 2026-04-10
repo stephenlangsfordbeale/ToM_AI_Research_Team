@@ -1,0 +1,75 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+
+type: pipeline
+experiment_name: tom_coordination_candidate_selection
+display_name: tom-baseline-vs-candidate-selection
+
+inputs:
+  train_episodes:
+    type: integer
+    default: 800
+  seed:
+    type: integer
+    default: 7
+  max_steps:
+    type: integer
+    default: 20
+  candidate_tom_experiment:
+    type: string
+    default: contextual_right_of_way_switch
+  candidate_tom_experiment_strength:
+    type: number
+    default: 0.25
+  candidate_tom_belief_uncertainty_threshold:
+    type: number
+    default: 0.60
+  candidate_tom_context_tag_threshold:
+    type: number
+    default: 0.55
+  epsilon:
+    type: number
+    default: 0.02
+  deadlock_delta_threshold:
+    type: number
+    default: 0.15
+
+settings:
+  default_compute: azureml:cpu-cluster
+
+jobs:
+  train_baseline:
+    type: command
+    component: ./components/train.yml
+    inputs:
+      variant: baseline
+      train_episodes: ${{parent.inputs.train_episodes}}
+      seed: ${{parent.inputs.seed}}
+      max_steps: ${{parent.inputs.max_steps}}
+      tom_experiment: none
+      tom_experiment_strength: 0.25
+      tom_belief_uncertainty_threshold: 0.60
+      tom_context_tag_threshold: 0.55
+
+  train_candidate:
+    type: command
+    component: ./components/train.yml
+    inputs:
+      variant: tom
+      train_episodes: ${{parent.inputs.train_episodes}}
+      seed: ${{parent.inputs.seed}}
+      max_steps: ${{parent.inputs.max_steps}}
+      tom_experiment: ${{parent.inputs.candidate_tom_experiment}}
+      tom_experiment_strength: ${{parent.inputs.candidate_tom_experiment_strength}}
+      tom_belief_uncertainty_threshold: ${{parent.inputs.candidate_tom_belief_uncertainty_threshold}}
+      tom_context_tag_threshold: ${{parent.inputs.candidate_tom_context_tag_threshold}}
+
+  select_candidate:
+    type: command
+    component: ./components/select.yml
+    inputs:
+      baseline_metrics_input: ${{parent.jobs.train_baseline.outputs.metrics_output}}
+      baseline_model_input: ${{parent.jobs.train_baseline.outputs.model_output}}
+      candidate_metrics_input: ${{parent.jobs.train_candidate.outputs.metrics_output}}
+      candidate_model_input: ${{parent.jobs.train_candidate.outputs.model_output}}
+      epsilon: ${{parent.inputs.epsilon}}
+      deadlock_delta_threshold: ${{parent.inputs.deadlock_delta_threshold}}

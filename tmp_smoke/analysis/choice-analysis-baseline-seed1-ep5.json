@@ -1,0 +1,58 @@
+{
+  "choice_context_counts": {
+    "high_conflict_bottleneck|self_priority": 55,
+    "normal_flow|self_priority": 82
+  },
+  "choice_context_rates": {
+    "high_conflict_bottleneck|self_priority": 0.40145985401459855,
+    "normal_flow|self_priority": 0.5985401459854015
+  },
+  "context_terminal_outcome_rates": {
+    "high_conflict_bottleneck|self_priority": {
+      "collision": 0.2,
+      "deadlock": 0.3090909090909091,
+      "success": 0.4909090909090909,
+      "timeout": 0.0
+    },
+    "normal_flow|self_priority": {
+      "collision": 0.08536585365853659,
+      "deadlock": 0.2804878048780488,
+      "success": 0.6341463414634146,
+      "timeout": 0.0
+    }
+  },
+  "experiment_mask_firing_counts": {},
+  "experiment_mask_firing_rates": {},
+  "motivation_profile": {
+    "high_conflict_cooperative_rate": 0.0,
+    "high_conflict_self_priority_rate": 1.0
+  },
+  "partner_style_rates": {
+    "partner_type_0": {
+      "cooperative_wait_rate": 0.0,
+      "cooperative_yield_rate": 0.0,
+      "self_priority_rate": 1.0
+    },
+    "partner_type_1": {
+      "cooperative_wait_rate": 0.0,
+      "cooperative_yield_rate": 0.0,
+      "self_priority_rate": 1.0
+    },
+    "partner_type_2": {
+      "cooperative_wait_rate": 0.0,
+      "cooperative_yield_rate": 0.0,
+      "self_priority_rate": 1.0
+    },
+    "partner_type_3": {
+      "cooperative_wait_rate": 0.0,
+      "cooperative_yield_rate": 0.0,
+      "self_priority_rate": 1.0
+    },
+    "partner_type_4": {
+      "cooperative_wait_rate": 0.0,
+      "cooperative_yield_rate": 0.0,
+      "self_priority_rate": 1.0
+    }
+  },
+  "scenarios_evaluated": 20
+}

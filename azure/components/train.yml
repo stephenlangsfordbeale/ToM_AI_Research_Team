@@ -1,0 +1,52 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+
+name: tom_train_component
+display_name: ToM Train Component
+type: command
+
+inputs:
+  variant:
+    type: string
+  train_episodes:
+    type: integer
+    default: 800
+  seed:
+    type: integer
+    default: 7
+  max_steps:
+    type: integer
+    default: 20
+  tom_experiment:
+    type: string
+    default: none
+  tom_experiment_strength:
+    type: number
+    default: 0.25
+  tom_belief_uncertainty_threshold:
+    type: number
+    default: 0.60
+  tom_context_tag_threshold:
+    type: number
+    default: 0.55
+
+outputs:
+  model_output:
+    type: uri_folder
+  metrics_output:
+    type: uri_folder
+
+code: ../..
+environment: azureml:tom-coord-train-env@latest
+
+command: >-
+  python scripts/aml_train_component.py
+  --variant ${{inputs.variant}}
+  --train-episodes ${{inputs.train_episodes}}
+  --seed ${{inputs.seed}}
+  --max-steps ${{inputs.max_steps}}
+  --tom-experiment ${{inputs.tom_experiment}}
+  --tom-experiment-strength ${{inputs.tom_experiment_strength}}
+  --tom-belief-uncertainty-threshold ${{inputs.tom_belief_uncertainty_threshold}}
+  --tom-context-tag-threshold ${{inputs.tom_context_tag_threshold}}
+  --model-output ${{outputs.model_output}}
+  --metrics-output ${{outputs.metrics_output}}

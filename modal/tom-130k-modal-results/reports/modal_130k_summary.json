@@ -1,0 +1,201 @@
+{
+  "branch_mean_metrics": {
+    "AmbiguityEfficiency": 0.10625000000000001,
+    "AverageDelay": 13.225,
+    "CollisionRate": 0.225,
+    "CoordinationEfficiency": 0.08875,
+    "DeadlockRate": 0.225,
+    "IntentionPredictionF1": 0.6825395409342907,
+    "StrategySwitchAccuracy": 0.925,
+    "SuccessRate": 0.3,
+    "ToMCoordScore": 0.23070553573080071
+  },
+  "seed11_curve_stats": {
+    "best_reward_ma10": 0.855,
+    "best_reward_ma10_episode": 1.0,
+    "entropy_first100_mean": 1.0448604589700698,
+    "entropy_last100_mean": 0.31865488074719905,
+    "episodes": 129200.0,
+    "last1000_reward_ma10_mean": -0.199247,
+    "last1000_reward_mean": -0.196509,
+    "last100_reward_ma10_mean": -0.09561,
+    "last100_reward_mean": -0.07458,
+    "last_reward_ma10": 0.2125
+  },
+  "seed11_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 2,
+      "deadlock": 1,
+      "success": 0,
+      "timeout": 1
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 0,
+      "timeout": 2
+    },
+    "false_friend": {
+      "collision": 2,
+      "deadlock": 1,
+      "success": 0,
+      "timeout": 1
+    },
+    "late_disambiguation": {
+      "collision": 0,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 1
+    },
+    "no_progress_switch": {
+      "collision": 0,
+      "deadlock": 1,
+      "success": 3,
+      "timeout": 0
+    }
+  },
+  "seed11_vs_old_auxhead": {
+    "AmbiguityEfficiency": {
+      "delta": 0.004166666666666666,
+      "new": 0.09166666666666667,
+      "old": 0.08750000000000001
+    },
+    "AverageDelay": {
+      "delta": 1.4499999999999993,
+      "new": 13.25,
+      "old": 11.8
+    },
+    "CollisionRate": {
+      "delta": 0.0,
+      "new": 0.2,
+      "old": 0.2
+    },
+    "CoordinationEfficiency": {
+      "delta": 0.015,
+      "new": 0.085,
+      "old": 0.07
+    },
+    "DeadlockRate": {
+      "delta": -0.25,
+      "new": 0.25,
+      "old": 0.5
+    },
+    "IntentionPredictionF1": {
+      "delta": 0.21927637055364524,
+      "new": 0.6750875191163302,
+      "old": 0.455811148562685
+    },
+    "StrategySwitchAccuracy": {
+      "delta": 0.050000000000000044,
+      "new": 0.9,
+      "old": 0.85
+    },
+    "SuccessRate": {
+      "delta": 0.0,
+      "new": 0.3,
+      "old": 0.3
+    },
+    "ToMCoordScore": {
+      "delta": 0.10124869187751037,
+      "new": 0.22581225267628627,
+      "old": 0.1245635607987759
+    }
+  },
+  "seed7_curve_stats": {
+    "best_reward_ma10": 0.885,
+    "best_reward_ma10_episode": 1.0,
+    "entropy_first100_mean": 1.0166043496131898,
+    "entropy_last100_mean": 0.30888521775603295,
+    "episodes": 129200.0,
+    "last1000_reward_ma10_mean": -0.156477,
+    "last1000_reward_mean": -0.157973,
+    "last100_reward_ma10_mean": -0.112835,
+    "last100_reward_mean": -0.13599,
+    "last_reward_ma10": -0.4215
+  },
+  "seed7_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 1,
+      "deadlock": 1,
+      "success": 1,
+      "timeout": 1
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 0,
+      "timeout": 2
+    },
+    "false_friend": {
+      "collision": 2,
+      "deadlock": 0,
+      "success": 1,
+      "timeout": 1
+    },
+    "late_disambiguation": {
+      "collision": 1,
+      "deadlock": 1,
+      "success": 2,
+      "timeout": 0
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 2,
+      "timeout": 1
+    }
+  },
+  "seed7_vs_old_auxhead": {
+    "AmbiguityEfficiency": {
+      "delta": -0.004166666666666652,
+      "new": 0.12083333333333335,
+      "old": 0.125
+    },
+    "AverageDelay": {
+      "delta": 1.049999999999999,
+      "new": 13.2,
+      "old": 12.15
+    },
+    "CollisionRate": {
+      "delta": 0.1,
+      "new": 0.25,
+      "old": 0.15
+    },
+    "CoordinationEfficiency": {
+      "delta": 0.0024999999999999883,
+      "new": 0.0925,
+      "old": 0.09000000000000001
+    },
+    "DeadlockRate": {
+      "delta": -0.3,
+      "new": 0.2,
+      "old": 0.5
+    },
+    "IntentionPredictionF1": {
+      "delta": 0.24451187095509752,
+      "new": 0.689991562752251,
+      "old": 0.4454796917971535
+    },
+    "StrategySwitchAccuracy": {
+      "delta": 0.09999999999999998,
+      "new": 0.95,
+      "old": 0.85
+    },
+    "SuccessRate": {
+      "delta": -0.04999999999999999,
+      "new": 0.3,
+      "old": 0.35
+    },
+    "ToMCoordScore": {
+      "delta": 0.0668316619337136,
+      "new": 0.23559881878531513,
+      "old": 0.16876715685160154
+    }
+  },
+  "verdicts": {
+    "branch_130k": "Keep as the current best candidate branch. Strong enough to supersede the old 800-episode auxhead-lite line, but not yet a fully clean behavioral endpoint.",
+    "old_auxhead_lite_incumbents": "Discard as current best; keep as archive baselines.",
+    "seed11_130k": "Keep. Supporting replicate with slightly rougher ambiguity handling.",
+    "seed7_130k": "Keep. Best single run in the branch."
+  }
+}

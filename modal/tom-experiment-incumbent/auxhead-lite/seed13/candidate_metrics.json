@@ -1,0 +1,25 @@
+{
+  "checkpoint_source": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v1-auxhead-lite-s13/candidate_metrics/_checkpoints/tom_seed13.pt",
+  "copied_analysis": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v1-auxhead-lite-s13/candidate_metrics/choice_analysis.json",
+  "copied_curve": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v1-auxhead-lite-s13/candidate_metrics/learning_curve.csv",
+  "copied_model": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v1-auxhead-lite-s13/candidate_model/model.pt",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.06666666666666667,
+    "AverageDelay": 12.2,
+    "CollisionRate": 0.2,
+    "CoordinationEfficiency": 0.0425,
+    "DeadlockRate": 0.55,
+    "IntentionPredictionF1": 0.38507423449435324,
+    "StrategySwitchAccuracy": 0.85,
+    "SuccessRate": 0.25,
+    "ToMCoordScore": 0.07816039282920942
+  },
+  "max_steps": 20,
+  "seed": 13,
+  "tom_belief_uncertainty_threshold": 0.6,
+  "tom_context_tag_threshold": 0.55,
+  "tom_experiment": "contextual_right_of_way_switch",
+  "tom_experiment_strength": 0.25,
+  "train_episodes": 800,
+  "variant": "tom"
+}

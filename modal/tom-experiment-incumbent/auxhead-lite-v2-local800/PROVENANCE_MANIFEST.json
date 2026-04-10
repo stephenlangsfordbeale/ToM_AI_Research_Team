@@ -1,0 +1,23 @@
+{
+  "archive_name": "auxhead-lite-v2-local800",
+  "created_on": "2026-04-09",
+  "description": "Clean incumbent archive built from the exact local V2 800 selected-model checkpoints.",
+  "seeds": {
+    "seed11": {
+      "archived_selected_model": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/modal/tom-experiment-incumbent/auxhead-lite-v2-local800/seed11/selected_model.pt",
+      "archived_selected_model_sha1": "b8566ba23a2bc077e376f9d07dcb154b96190a15",
+      "candidate_metrics_json": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/modal/tom-experiment-incumbent/auxhead-lite-v2-local800/seed11/candidate_metrics.json",
+      "selection_json": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/modal/tom-experiment-incumbent/auxhead-lite-v2-local800/seed11/selection.json",
+      "source_selected_model": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/logs/local-run-v2-modal-seed11/selected_model/model.pt",
+      "source_selected_model_sha1": "b8566ba23a2bc077e376f9d07dcb154b96190a15"
+    },
+    "seed7": {
+      "archived_selected_model": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/modal/tom-experiment-incumbent/auxhead-lite-v2-local800/seed7/selected_model.pt",
+      "archived_selected_model_sha1": "9adca7d63617a6bd7cdb8b07a020ec64025a3faf",
+      "candidate_metrics_json": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/modal/tom-experiment-incumbent/auxhead-lite-v2-local800/seed7/candidate_metrics.json",
+      "selection_json": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/modal/tom-experiment-incumbent/auxhead-lite-v2-local800/seed7/selection.json",
+      "source_selected_model": "/Users/stephenbeale/Projects/ToM_20AI_Research_20Team/logs/local-run-v2-modal-seed7/selected_model/model.pt",
+      "source_selected_model_sha1": "9adca7d63617a6bd7cdb8b07a020ec64025a3faf"
+    }
+  }
+}

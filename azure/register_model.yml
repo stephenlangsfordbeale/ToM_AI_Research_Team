@@ -1,0 +1,36 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+
+type: command
+display_name: register-tom-selected-model
+experiment_name: tom_coordination_model_registry
+
+inputs:
+  selected_model_input:
+    type: uri_folder
+  model_name:
+    type: string
+    default: tom-coordination-selected
+  model_version:
+    type: string
+    optional: true
+  subscription_id:
+    type: string
+  resource_group:
+    type: string
+  workspace_name:
+    type: string
+  dry_run:
+    type: boolean
+    default: false
+
+code: ..
+environment: azureml:tom-coord-train-env@latest
+command: >-
+  python scripts/register_model.py
+  --model-path ${{inputs.selected_model_input}}
+  --model-name ${{inputs.model_name}}
+  --subscription-id ${{inputs.subscription_id}}
+  --resource-group ${{inputs.resource_group}}
+  --workspace-name ${{inputs.workspace_name}}
+  --dry-run ${{inputs.dry_run}}
+  $[[--model-version ${{inputs.model_version}}]]

@@ -1,0 +1,36 @@
+{
+  "profile_name": "overnight_stable_v1",
+  "objective": {
+    "primary_metric": "ToMCoordScore",
+    "secondary_metric": "IntentionPredictionF1"
+  },
+  "parity_controls": {
+    "scenario_tag": "fixed_validation_scenarios_v1",
+    "train_episodes": 800,
+    "time_budget_seconds": 600,
+    "seeds": [7, 11, 19, 23]
+  },
+  "controller": {
+    "epsilon": 0.02,
+    "deadlock_delta_threshold": 0.15,
+    "checkpoint_seed_policy": "best_retained_candidate"
+  },
+  "cadence": {
+    "research_snapshot_interval": 4,
+    "budget_snapshot_interval": 8,
+    "story_snapshot_interval": 8
+  },
+  "artifact_policy": {
+    "heavy_run_mode": true,
+    "always_write": [
+      "logs/child-jobs/*.jsonl",
+      "logs/child-jobs/*.json",
+      "logs/overnight-run-notes.md",
+      "logs/research-timeline.md",
+      "logs/budget-watch.md"
+    ],
+    "defer_until_checkpoint": [
+      "logs/human-encounter-stories.md"
+    ]
+  }
+}

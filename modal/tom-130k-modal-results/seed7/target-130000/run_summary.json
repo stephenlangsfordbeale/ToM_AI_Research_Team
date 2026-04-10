@@ -1,0 +1,23 @@
+{
+  "additional_train_episodes": 129200,
+  "choice_analysis_json": "/root/outputs/auxhead-lite/seed7/target-130000/analysis/choice-analysis-tom-seed7-ep129200.json",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.12083333333333335,
+    "AverageDelay": 13.2,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.0925,
+    "DeadlockRate": 0.2,
+    "IntentionPredictionF1": 0.689991562752251,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.3,
+    "ToMCoordScore": 0.23559881878531513
+  },
+  "initial_checkpoint": "/root/incumbent/auxhead-lite/seed7/selected_model.pt",
+  "initial_checkpoint_train_episodes": 800,
+  "learning_curve_csv": "/root/outputs/auxhead-lite/seed7/target-130000/curves/curve-tom-seed7-ep129200.csv",
+  "output_dir": "/root/outputs/auxhead-lite/seed7/target-130000",
+  "returncode": 0,
+  "saved_checkpoint": "/root/outputs/auxhead-lite/seed7/target-130000/checkpoints/tom_seed7.pt",
+  "seed": 7,
+  "target_total_episodes": 130000
+}

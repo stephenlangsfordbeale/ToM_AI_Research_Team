@@ -1,0 +1,14 @@
+{
+  "artifact_episode_tag": 805,
+  "base_train_episodes": 800,
+  "completed_additional_episodes": 5,
+  "completed_chunk_episodes": 5,
+  "completed_total_episodes": 805,
+  "is_final": true,
+  "latest_checkpoint": "tmp_smoke/v2-seed11/checkpoints/latest-tom_seed11.pt",
+  "latest_curve": "tmp_smoke/v2-seed11/curves/latest-curve-tom-seed11.csv",
+  "remaining_total_episodes": 0,
+  "reported_train_episodes": 805,
+  "seed": 11,
+  "variant": "tom"
+}

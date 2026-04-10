@@ -1,0 +1,9 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+
+name: tom-coord-train-env
+version: 1
+description: Training environment for ToM coordination baseline/candidate comparison pipeline.
+
+build:
+  path: ../..
+  dockerfile_path: Dockerfile.train

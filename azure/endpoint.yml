@@ -1,0 +1,4 @@
+# Azure ML managed online endpoint skeleton
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+name: tom-coord-endpoint
+auth_mode: key

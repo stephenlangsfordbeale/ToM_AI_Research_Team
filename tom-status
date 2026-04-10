@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage:
+  tom-status <run-stamp-or-volume-name> [--target-total-episodes N] [--output-family NAME]
+
+Examples:
+  tom-status check2
+  tom-status tom-previous-v2-duplicate-check2
+  tom-status check2 --target-total-episodes 140000
+EOF
+}
+
+target_total_episodes=140000
+output_family="auxhead-lite"
+volume_arg=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --target-total-episodes)
+      target_total_episodes="${2:-}"
+      shift 2
+      ;;
+    --output-family)
+      output_family="${2:-}"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      if [[ -z "$volume_arg" ]]; then
+        volume_arg="$1"
+      else
+        echo "Unexpected argument: $1" >&2
+        usage >&2
+        exit 2
+      fi
+      shift
+      ;;
+  esac
+done
+
+if [[ -z "$volume_arg" ]]; then
+  usage >&2
+  exit 2
+fi
+
+if [[ "$volume_arg" == tom-previous-v2-duplicate-* ]]; then
+  volume_name="$volume_arg"
+else
+  volume_name="tom-previous-v2-duplicate-$volume_arg"
+fi
+
+target_path_seed7="/$output_family/seed7/target-$target_total_episodes"
+target_path_seed11="/$output_family/seed11/target-$target_total_episodes"
+
+check_seed() {
+  local seed_label="$1"
+  local target_path="$2"
+
+  printf '\nSeed %s\n' "$seed_label"
+  printf 'Checking: %s\n' "$target_path"
+
+  if modal volume ls "$volume_name" "$target_path"; then
+    return 0
+  fi
+
+  printf 'Status: missing or not started yet\n'
+  return 1
+}
+
+printf 'Volume: %s\n' "$volume_name"
+seed7_status=0
+seed11_status=0
+check_seed 7 "$target_path_seed7" || seed7_status=$?
+check_seed 11 "$target_path_seed11" || seed11_status=$?
+
+if [[ $seed7_status -ne 0 || $seed11_status -ne 0 ]]; then
+  exit 1
+fi

@@ -1,0 +1,23 @@
+{
+  "snapshot_kind": "archive_only",
+  "created_on": "2026-04-10",
+  "source_run_root": "/Users/stephenbeale/Projects/ToM AI Research Team/modal/tom-140k-modal-results-v2b/seed7/seed7/target-140000",
+  "seed": 7,
+  "train_episodes": 140000,
+  "comparison_refs": {
+    "previous_v2_seed7": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/modal/tom-140k-modal-results-v2/seed7/target-140000/run_summary.json",
+    "old140_seed7": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/modal/tom-140k-modal-results/seed7/target-140000/run_summary.json",
+    "best_validated_single_checkpoint": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/modal/tom-140k-modal-results-v2/seed11/target-140000/run_summary.json"
+  },
+  "stored_artifacts": {
+    "selected_model": "seed7/selected_model.pt",
+    "run_summary": "seed7/run_summary.json",
+    "choice_analysis": "seed7/candidate_choice_analysis.json",
+    "learning_curve": "seed7/learning_curve.csv"
+  },
+  "promotion_status": {
+    "seed7_snapshot_keep": true,
+    "global_incumbent_promoted": false,
+    "reason": "v2b/seed7 is a strong validated seed7 rerun, but v2/seed11 remains the best validated single checkpoint and the paired v2b/seed11 export is duplicated/corrupted."
+  }
+}

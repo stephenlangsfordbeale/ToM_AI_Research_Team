@@ -1,0 +1,41 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+
+name: tom_select_component
+display_name: ToM Candidate Selector
+type: command
+
+inputs:
+  baseline_metrics_input:
+    type: uri_folder
+  baseline_model_input:
+    type: uri_folder
+  candidate_metrics_input:
+    type: uri_folder
+  candidate_model_input:
+    type: uri_folder
+  epsilon:
+    type: number
+    default: 0.02
+  deadlock_delta_threshold:
+    type: number
+    default: 0.15
+
+outputs:
+  selected_model_output:
+    type: uri_folder
+  selection_output:
+    type: uri_folder
+
+code: ../..
+environment: azureml:tom-coord-train-env@latest
+
+command: >-
+  python scripts/select_candidate.py
+  --baseline-metrics-dir ${{inputs.baseline_metrics_input}}
+  --baseline-model-dir ${{inputs.baseline_model_input}}
+  --candidate-metrics-dir ${{inputs.candidate_metrics_input}}
+  --candidate-model-dir ${{inputs.candidate_model_input}}
+  --epsilon ${{inputs.epsilon}}
+  --deadlock-delta-threshold ${{inputs.deadlock_delta_threshold}}
+  --selected-model-dir ${{outputs.selected_model_output}}
+  --selection-output-dir ${{outputs.selection_output}}

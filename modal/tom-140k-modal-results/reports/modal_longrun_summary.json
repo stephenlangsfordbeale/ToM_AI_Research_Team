@@ -1,0 +1,204 @@
+{
+  "branch_mean_130k": {
+    "AmbiguityEfficiency": 0.10625000000000001,
+    "AverageDelay": 13.225,
+    "CollisionRate": 0.225,
+    "CoordinationEfficiency": 0.08875,
+    "DeadlockRate": 0.225,
+    "IntentionPredictionF1": 0.6825395409342907,
+    "StrategySwitchAccuracy": 0.925,
+    "SuccessRate": 0.3,
+    "ToMCoordScore": 0.23070553573080071
+  },
+  "branch_mean_140k": {
+    "AmbiguityEfficiency": 0.10833333333333334,
+    "AverageDelay": 14.575,
+    "CollisionRate": 0.2,
+    "CoordinationEfficiency": 0.0675,
+    "DeadlockRate": 0.175,
+    "IntentionPredictionF1": 0.7061084993975589,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.25,
+    "ToMCoordScore": 0.2403551899156583
+  },
+  "seed11_130k_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 2,
+      "deadlock": 1,
+      "success": 0,
+      "timeout": 1
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 0,
+      "timeout": 2
+    },
+    "false_friend": {
+      "collision": 2,
+      "deadlock": 1,
+      "success": 0,
+      "timeout": 1
+    },
+    "late_disambiguation": {
+      "collision": 0,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 1
+    },
+    "no_progress_switch": {
+      "collision": 0,
+      "deadlock": 1,
+      "success": 3,
+      "timeout": 0
+    }
+  },
+  "seed11_130k_metrics": {
+    "AmbiguityEfficiency": 0.09166666666666667,
+    "AverageDelay": 13.25,
+    "CollisionRate": 0.2,
+    "CoordinationEfficiency": 0.085,
+    "DeadlockRate": 0.25,
+    "IntentionPredictionF1": 0.6750875191163302,
+    "StrategySwitchAccuracy": 0.9,
+    "SuccessRate": 0.3,
+    "ToMCoordScore": 0.22581225267628627
+  },
+  "seed11_140k_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 2,
+      "deadlock": 1,
+      "success": 0,
+      "timeout": 1
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 0,
+      "timeout": 2
+    },
+    "false_friend": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 1,
+      "timeout": 2
+    },
+    "late_disambiguation": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 2,
+      "timeout": 1
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 1,
+      "timeout": 2
+    }
+  },
+  "seed11_140k_metrics": {
+    "AmbiguityEfficiency": 0.08333333333333333,
+    "AverageDelay": 14.3,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.052500000000000005,
+    "DeadlockRate": 0.15,
+    "IntentionPredictionF1": 0.6897480141138345,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.2,
+    "ToMCoordScore": 0.20141472197593688
+  },
+  "seed7_130k_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 1,
+      "deadlock": 1,
+      "success": 1,
+      "timeout": 1
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 0,
+      "timeout": 2
+    },
+    "false_friend": {
+      "collision": 2,
+      "deadlock": 0,
+      "success": 1,
+      "timeout": 1
+    },
+    "late_disambiguation": {
+      "collision": 1,
+      "deadlock": 1,
+      "success": 2,
+      "timeout": 0
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 2,
+      "timeout": 1
+    }
+  },
+  "seed7_130k_metrics": {
+    "AmbiguityEfficiency": 0.12083333333333335,
+    "AverageDelay": 13.2,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.0925,
+    "DeadlockRate": 0.2,
+    "IntentionPredictionF1": 0.689991562752251,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.3,
+    "ToMCoordScore": 0.23559881878531513
+  },
+  "seed7_140k_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 1,
+      "deadlock": 1,
+      "success": 1,
+      "timeout": 1
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 0,
+      "timeout": 2
+    },
+    "false_friend": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 1,
+      "timeout": 2
+    },
+    "late_disambiguation": {
+      "collision": 0,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 1
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 1,
+      "success": 1,
+      "timeout": 1
+    }
+  },
+  "seed7_140k_metrics": {
+    "AmbiguityEfficiency": 0.13333333333333333,
+    "AverageDelay": 14.85,
+    "CollisionRate": 0.15,
+    "CoordinationEfficiency": 0.08249999999999999,
+    "DeadlockRate": 0.2,
+    "IntentionPredictionF1": 0.7224689846812834,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.3,
+    "ToMCoordScore": 0.27929565785537974
+  },
+  "verdicts": {
+    "branch_overall": "Keep the long-run branch, but prefer 130k as the safer cross-seed recommendation and seed7 140k as the best individual checkpoint.",
+    "old_auxhead_lite_incumbents": "Discard as current best; keep as archive baselines.",
+    "seed11_130k": "Keep. Supporting replicate and safer cross-seed stopping point.",
+    "seed11_140k": "Discard as branch default; useful negative datapoint showing overtraining risk.",
+    "seed7_130k": "Keep. Strong and robust.",
+    "seed7_140k": "Keep. Current best single run."
+  }
+}

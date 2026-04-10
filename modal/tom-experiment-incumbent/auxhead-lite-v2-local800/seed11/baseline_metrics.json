@@ -1,0 +1,25 @@
+{
+  "checkpoint_source": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v2-modal-seed11/baseline_metrics/_checkpoints/baseline_seed11.pt",
+  "copied_analysis": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v2-modal-seed11/baseline_metrics/choice_analysis.json",
+  "copied_curve": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v2-modal-seed11/baseline_metrics/learning_curve.csv",
+  "copied_model": "/Users/stephenbeale/Projects/ToM AI Research Team/logs/local-run-v2-modal-seed11/baseline_model/model.pt",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.07083333333333332,
+    "AverageDelay": 11.7,
+    "CollisionRate": 0.4,
+    "CoordinationEfficiency": 0.07749999999999999,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.0,
+    "StrategySwitchAccuracy": 0.5,
+    "SuccessRate": 0.5,
+    "ToMCoordScore": 0.06129999999999999
+  },
+  "max_steps": 20,
+  "seed": 11,
+  "tom_belief_uncertainty_threshold": 0.6,
+  "tom_context_tag_threshold": 0.55,
+  "tom_experiment": "none",
+  "tom_experiment_strength": 0.25,
+  "train_episodes": 800,
+  "variant": "baseline"
+}

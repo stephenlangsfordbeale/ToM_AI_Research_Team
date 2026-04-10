@@ -1,0 +1,236 @@
+{
+  "branch_mean_local800": {
+    "AmbiguityEfficiency": 0.18749999999999997,
+    "AverageDelay": 12.2,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.16625,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.4381598356482189,
+    "StrategySwitchAccuracy": 0.5,
+    "SuccessRate": 0.65,
+    "ToMCoordScore": 0.2666173769907507
+  },
+  "branch_mean_new140": {
+    "AmbiguityEfficiency": 0.14999999999999997,
+    "AverageDelay": 14.425,
+    "CollisionRate": 0.15000000000000002,
+    "CoordinationEfficiency": 0.0975,
+    "DeadlockRate": 0.2,
+    "IntentionPredictionF1": 0.7151015286909141,
+    "StrategySwitchAccuracy": 0.9,
+    "SuccessRate": 0.525,
+    "ToMCoordScore": 0.342314214016728
+  },
+  "branch_mean_old140": {
+    "AmbiguityEfficiency": 0.10833333333333334,
+    "AverageDelay": 14.575,
+    "CollisionRate": 0.2,
+    "CoordinationEfficiency": 0.0675,
+    "DeadlockRate": 0.175,
+    "IntentionPredictionF1": 0.7061084993975589,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.25,
+    "ToMCoordScore": 0.2403551899156583
+  },
+  "seed11_local800_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 2,
+      "timeout": 0
+    },
+    "false_friend": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    },
+    "late_disambiguation": {
+      "collision": 2,
+      "deadlock": 0,
+      "success": 2,
+      "timeout": 0
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    }
+  },
+  "seed11_local800_metrics": {
+    "AmbiguityEfficiency": 0.20416666666666664,
+    "AverageDelay": 11.85,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.18250000000000002,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.43389446266953124,
+    "StrategySwitchAccuracy": 0.55,
+    "SuccessRate": 0.65,
+    "ToMCoordScore": 0.28264522477373444
+  },
+  "seed11_new140_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 2,
+      "timeout": 1
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 0,
+      "timeout": 2
+    },
+    "false_friend": {
+      "collision": 0,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 1
+    },
+    "late_disambiguation": {
+      "collision": 0,
+      "deadlock": 1,
+      "success": 3,
+      "timeout": 0
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    }
+  },
+  "seed11_new140_metrics": {
+    "AmbiguityEfficiency": 0.17499999999999996,
+    "AverageDelay": 15.35,
+    "CollisionRate": 0.1,
+    "CoordinationEfficiency": 0.1125,
+    "DeadlockRate": 0.15,
+    "IntentionPredictionF1": 0.7189770203930795,
+    "StrategySwitchAccuracy": 0.9,
+    "SuccessRate": 0.55,
+    "ToMCoordScore": 0.38870678285503113
+  },
+  "seed11_old140_metrics": {
+    "AmbiguityEfficiency": 0.08333333333333333,
+    "AverageDelay": 14.3,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.052500000000000005,
+    "DeadlockRate": 0.15,
+    "IntentionPredictionF1": 0.6897480141138345,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.2,
+    "ToMCoordScore": 0.20141472197593688
+  },
+  "seed7_local800_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 2,
+      "success": 2,
+      "timeout": 0
+    },
+    "false_friend": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    },
+    "late_disambiguation": {
+      "collision": 2,
+      "deadlock": 0,
+      "success": 2,
+      "timeout": 0
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    }
+  },
+  "seed7_local800_metrics": {
+    "AmbiguityEfficiency": 0.1708333333333333,
+    "AverageDelay": 12.55,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.15,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.44242520862690665,
+    "StrategySwitchAccuracy": 0.45,
+    "SuccessRate": 0.65,
+    "ToMCoordScore": 0.25058952920776695
+  },
+  "seed7_new140_family_outcomes": {
+    "ambiguous_commit": {
+      "collision": 2,
+      "deadlock": 1,
+      "success": 1,
+      "timeout": 0
+    },
+    "assert_or_yield": {
+      "collision": 0,
+      "deadlock": 3,
+      "success": 0,
+      "timeout": 1
+    },
+    "false_friend": {
+      "collision": 1,
+      "deadlock": 1,
+      "success": 2,
+      "timeout": 0
+    },
+    "late_disambiguation": {
+      "collision": 0,
+      "deadlock": 0,
+      "success": 4,
+      "timeout": 0
+    },
+    "no_progress_switch": {
+      "collision": 1,
+      "deadlock": 0,
+      "success": 3,
+      "timeout": 0
+    }
+  },
+  "seed7_new140_metrics": {
+    "AmbiguityEfficiency": 0.125,
+    "AverageDelay": 13.5,
+    "CollisionRate": 0.2,
+    "CoordinationEfficiency": 0.08249999999999999,
+    "DeadlockRate": 0.25,
+    "IntentionPredictionF1": 0.7112260369887489,
+    "StrategySwitchAccuracy": 0.9,
+    "SuccessRate": 0.5,
+    "ToMCoordScore": 0.2959216451784249
+  },
+  "seed7_old140_metrics": {
+    "AmbiguityEfficiency": 0.13333333333333333,
+    "AverageDelay": 14.85,
+    "CollisionRate": 0.15,
+    "CoordinationEfficiency": 0.08249999999999999,
+    "DeadlockRate": 0.2,
+    "IntentionPredictionF1": 0.7224689846812834,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.3,
+    "ToMCoordScore": 0.27929565785537974
+  },
+  "verdicts": {
+    "new_v2_branch": "Keep as the current best 140k branch. It materially outperforms the old 140k line on score and especially rescues seed11.",
+    "remaining_risk": "assert_or_yield is still the weakest family. The branch is better overall, but that family remains the clearest unfinished behavior gap.",
+    "seed11_new140": "Keep strongly. Major improvement over the old 140k seed11 run and the best individual checkpoint in this comparison.",
+    "seed7_new140": "Keep. Modest score gain over the old 140k seed7 run, with better overall success but still some ambiguity-family roughness.",
+    "vs_local800": "Treat the new 140k branch as a long-run refinement, not a pure dominance result. Score, belief quality, and switch accuracy improve, but some families trade away short-run sharpness for slower, more deliberate behavior."
+  }
+}

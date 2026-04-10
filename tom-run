@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_path="$(python3 - <<'PY' "${BASH_SOURCE[0]}"
+import os, sys
+print(os.path.realpath(sys.argv[1]))
+PY
+)"
+script_dir="$(cd "$(dirname "$script_path")" && pwd)"
+stamp="${TOM_RUN_STAMP:-$(date +%Y%m%d-%H%M%S)}"
+
+export TOM_PREVIOUS_V2_DUPLICATE_APP_NAME="${TOM_PREVIOUS_V2_DUPLICATE_APP_NAME:-tom-previous-v2-duplicate-$stamp}"
+export TOM_PREVIOUS_V2_DUPLICATE_VOLUME_NAME="${TOM_PREVIOUS_V2_DUPLICATE_VOLUME_NAME:-tom-previous-v2-duplicate-$stamp}"
+export TOM_PREVIOUS_V2_WAIT_FOR_RESULTS="${TOM_PREVIOUS_V2_WAIT_FOR_RESULTS:-1}"
+
+cd "$script_dir"
+
+printf 'Launching previous V2 duplicate\n'
+printf '  mode: wait\n'
+printf '  app_name: %s\n' "$TOM_PREVIOUS_V2_DUPLICATE_APP_NAME"
+printf '  volume_name: %s\n' "$TOM_PREVIOUS_V2_DUPLICATE_VOLUME_NAME"
+
+exec modal run scripts/modal_v2b_runner.py "$@"
