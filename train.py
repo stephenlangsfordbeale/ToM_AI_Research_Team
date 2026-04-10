@@ -111,23 +111,33 @@ class ToMPolicy(nn.Module):
             & (assertive_belief > cooperative_belief + 0.14)
             & (margin_narrow | (partner_pressing & (~throughput_bias) & (assertive_belief > cooperative_belief + 0.22)))
         ).to(logits.dtype)
-        cooperative_soft_resolution = (
-            soft_partner_window
-            & (cooperative_belief > assertive_belief + 0.06)
-            & (cooperative_belief > opportunistic_belief + 0.12)
-        ).to(logits.dtype)
-        opportunistic_soft_probe = (
-            soft_partner_window
-            & (opportunistic_belief >= self.tom_belief_uncertainty_threshold - 0.05)
-            & (opportunistic_belief >= cooperative_belief - 0.02)
-        ).to(logits.dtype)
         late_commit = (
             negotiation_window
             & evidence_released
             & (
                 (cooperative_belief + 0.06 >= assertive_belief)
                 | (urgency_high & throughput_bias & (~margin_narrow))
+                | ((~margin_narrow) & partner_soft & (cooperative_belief > assertive_belief + 0.04))
             )
+        ).to(logits.dtype)
+        false_friend_guard = (
+            soft_partner_window
+            & (urgency_high | throughput_bias)
+            & (opportunistic_belief >= self.tom_belief_uncertainty_threshold - 0.03)
+            & (cooperative_belief <= opportunistic_belief + 0.04)
+        ).to(logits.dtype)
+        delayed_trust_cooperative_resolution = (
+            soft_partner_window
+            & (~urgency_high)
+            & (~throughput_bias)
+            & (cooperative_belief > assertive_belief + 0.08)
+            & (cooperative_belief > opportunistic_belief + 0.18)
+        ).to(logits.dtype)
+        delayed_trust_probe = (
+            soft_partner_window
+            & (~urgency_high)
+            & (~throughput_bias)
+            & (opportunistic_belief >= cooperative_belief - 0.02)
         ).to(logits.dtype)
         soft_reengage = (
             negotiation_window
@@ -135,8 +145,8 @@ class ToMPolicy(nn.Module):
             & partner_soft
             & (~margin_narrow)
             & (cooperative_belief + 0.05 >= assertive_belief)
-            & (cooperative_soft_resolution < 0.5)
-            & (opportunistic_soft_probe < 0.5)
+            & (delayed_trust_cooperative_resolution < 0.5)
+            & (delayed_trust_probe < 0.5)
         ).to(logits.dtype)
 
         logits[:, ASSERT] = logits[:, ASSERT] - 0.90 * early_caution
@@ -159,21 +169,27 @@ class ToMPolicy(nn.Module):
         logits[:, WAIT] = logits[:, WAIT] - 0.30 * soft_reengage
         logits[:, YIELD] = logits[:, YIELD] - 0.45 * soft_reengage
 
-        logits[:, PROCEED] = logits[:, PROCEED] + 0.34 * cooperative_soft_resolution
-        logits[:, PROBE] = logits[:, PROBE] - 0.24 * cooperative_soft_resolution
-        logits[:, WAIT] = logits[:, WAIT] - 0.10 * cooperative_soft_resolution
+        logits[:, ASSERT] = logits[:, ASSERT] - 0.26 * false_friend_guard
+        logits[:, PROCEED] = logits[:, PROCEED] - 0.40 * false_friend_guard
+        logits[:, WAIT] = logits[:, WAIT] + 0.06 * false_friend_guard
+        logits[:, PROBE] = logits[:, PROBE] + 0.34 * false_friend_guard
 
-        logits[:, ASSERT] = logits[:, ASSERT] - 0.30 * opportunistic_soft_probe
-        logits[:, PROCEED] = logits[:, PROCEED] - 0.48 * opportunistic_soft_probe
-        logits[:, WAIT] = logits[:, WAIT] + 0.10 * opportunistic_soft_probe
-        logits[:, PROBE] = logits[:, PROBE] + 0.42 * opportunistic_soft_probe
+        logits[:, PROCEED] = logits[:, PROCEED] + 0.26 * delayed_trust_cooperative_resolution
+        logits[:, PROBE] = logits[:, PROBE] - 0.16 * delayed_trust_cooperative_resolution
+        logits[:, WAIT] = logits[:, WAIT] - 0.06 * delayed_trust_cooperative_resolution
+
+        logits[:, ASSERT] = logits[:, ASSERT] - 0.12 * delayed_trust_probe
+        logits[:, PROCEED] = logits[:, PROCEED] - 0.22 * delayed_trust_probe
+        logits[:, WAIT] = logits[:, WAIT] + 0.04 * delayed_trust_probe
+        logits[:, PROBE] = logits[:, PROBE] + 0.20 * delayed_trust_probe
 
         diagnostics["early_caution_mask"] = early_caution
         diagnostics["late_yield_mask"] = late_yield
         diagnostics["late_commit_mask"] = late_commit
         diagnostics["soft_reengage_mask"] = soft_reengage
-        diagnostics["cooperative_soft_resolution_mask"] = cooperative_soft_resolution
-        diagnostics["opportunistic_soft_probe_mask"] = opportunistic_soft_probe
+        diagnostics["false_friend_guard_mask"] = false_friend_guard
+        diagnostics["delayed_trust_cooperative_resolution_mask"] = delayed_trust_cooperative_resolution
+        diagnostics["delayed_trust_probe_mask"] = delayed_trust_probe
         return logits, diagnostics
 
     def _apply_experiment_bolt_on(
@@ -665,8 +681,9 @@ def build_policy_runner(model: PolicyModel, device: torch.device):
                 "recovery_yield_mask",
                 "recovery_assert_mask",
                 "early_caution_mask",
-                "cooperative_soft_resolution_mask",
-                "opportunistic_soft_probe_mask",
+                "false_friend_guard_mask",
+                "delayed_trust_cooperative_resolution_mask",
+                "delayed_trust_probe_mask",
                 "soft_reengage_mask",
                 "late_yield_mask",
                 "late_commit_mask",
@@ -764,8 +781,9 @@ def analyze_choice_context_outcomes(
                 "recovery_yield_mask",
                 "recovery_assert_mask",
                 "early_caution_mask",
-                "cooperative_soft_resolution_mask",
-                "opportunistic_soft_probe_mask",
+                "false_friend_guard_mask",
+                "delayed_trust_cooperative_resolution_mask",
+                "delayed_trust_probe_mask",
                 "soft_reengage_mask",
                 "late_yield_mask",
                 "late_commit_mask",

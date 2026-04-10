@@ -161,5 +161,16 @@ For the broader post-evidence commitment family:
 - keep `false_friend` in the foreground as a named evaluation stressor
 - prioritize **post-evidence soft-partner disambiguation** over more generic threshold-only tuning
 
+## Constraint note: true exit pressure is not directly observable
+
+In the current frozen benchmark, remaining steps / timeout pressure are not explicit observation features.
+
+That means:
+- "probe gently on exit" is a useful human shorthand
+- but within train.py-only work it must be approximated indirectly through recurrent state and combinations of already observed features
+- future ideas should be careful to distinguish:
+  - true exit-aware behavior (would require observation-surface change)
+  - inferred late-episode caution from existing cues
+
 See also:
 - `docs/RESEARCH_FAMILY_TRIAGE_POLICY.md`

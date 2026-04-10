@@ -125,6 +125,21 @@ Purpose:
 - separates true coordination gains from noisy metric wins
 - rules families down when ToMCoordScore rises but switch timing or regret gets worse
 
+## Observability constraint: exit pressure is not directly visible
+
+For the frozen current benchmark, true exit pressure / remaining steps are **not directly present in the observation vector**.
+
+Implication:
+- any "probe gently on exit" behavior learned under the current benchmark must be approximated indirectly
+- direct exit-aware routing would require benchmark or observation-surface changes and should therefore be treated as a separate future design choice, not quietly slipped into train.py-only iterations
+
+Current train.py-only work should assume that exit-aware behavior can only come from:
+- recurrent state / sequence memory
+- bottleneck geometry
+- evidence-released state
+- partner softness / pressure cues
+- belief comparisons
+
 ## Policy for neutral results
 
 If a family yields results that are effectively identical to the current incumbent on a clean 1-seed or 3-seed gate:
