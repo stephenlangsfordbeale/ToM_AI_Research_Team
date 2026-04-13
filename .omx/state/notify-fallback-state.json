@@ -1,12 +1,12 @@
 {
-  "pid": 45764,
+  "pid": 45968,
   "parent_pid": 97520,
-  "started_at": "2026-04-13T10:22:44.903Z",
+  "started_at": "2026-04-13T10:22:47.902Z",
   "cwd": "/Users/stephenbeale/Projects/ToM_AI_Research_Team",
   "notify_script": "/opt/homebrew/lib/node_modules/oh-my-codex/dist/scripts/notify-hook.js",
   "authority_only": true,
   "poll_ms": 75,
-  "effective_poll_ms": 75,
+  "effective_poll_ms": 300,
   "idle_max_poll_ms": 1000,
   "pid_file": null,
   "max_lifetime_ms": 0,
@@ -17,7 +17,7 @@
     "max_per_tick": 5,
     "run_count": 1,
     "leader_only": true,
-    "last_tick_at": "2026-04-13T10:22:44.905Z",
+    "last_tick_at": "2026-04-13T10:22:47.904Z",
     "last_result": {
       "processed": 0,
       "skipped": 0,
@@ -29,8 +29,8 @@
     "enabled": true,
     "leader_only": true,
     "stale_threshold_ms": 180000,
-    "precomputed_leader_stale": true,
-    "last_tick_at": "2026-04-13T10:22:44.906Z",
+    "precomputed_leader_stale": false,
+    "last_tick_at": "2026-04-13T10:22:47.905Z",
     "last_error": null,
     "run_count": 1
   },
@@ -57,7 +57,7 @@
   "fallback_auto_nudge": {
     "enabled": true,
     "stall_ms": 5000,
-    "last_tick_at": "2026-04-13T10:22:44.992Z",
+    "last_tick_at": "2026-04-13T10:22:47.990Z",
     "last_turn_at": "2026-04-11T09:57:51.441Z",
     "last_turn_count": 181,
     "last_message": "{\"title\":\"Update phase 2 workflow capture\"}",
@@ -78,11 +78,11 @@
     "enabled": true,
     "base_ms": 75,
     "max_ms": 1000,
-    "current_ms": 75,
-    "idle_streak": 0,
-    "last_tick_at": "2026-04-13T10:22:44.994Z",
-    "last_activity_at": "2026-04-13T10:22:44.994Z",
-    "last_activity_reason": "leader_nudge"
+    "current_ms": 300,
+    "idle_streak": 2,
+    "last_tick_at": "2026-04-13T10:22:47.992Z",
+    "last_activity_at": "2026-04-13T10:22:46.008Z",
+    "last_activity_reason": "eligible_but_not_sent"
   },
-  "last_cycle_activity": "leader_nudge"
+  "last_cycle_activity": "eligible_but_not_sent"
 }
