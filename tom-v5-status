@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+status_cmd="$script_dir/tom-v6-status"
+
+if [[ ! -x "$status_cmd" ]]; then
+  echo "tom-v6-status helper not found: $status_cmd" >&2
+  exit 1
+fi
+
+volume_default="${TOM_V5_MODAL_VOLUME_NAME:-tom-v5-delayedtrust-runs}"
+output_default="${TOM_V5_REMOTE_OUTPUT_FAMILY:-v5-delayedtrust-split-candidate}"
+seeds_default="${TOM_V5_SEEDS_CSV:-7,11,23}"
+
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+  cat <<'EOF'
+Usage:
+  tom-v5-status [forwarded options]
+
+Defaults pre-applied:
+  --volume tom-v5-delayedtrust-runs
+  --output-family v5-delayedtrust-split-candidate
+  --seeds-csv 7,11,23
+
+Examples:
+  tom-v5-status
+  tom-v5-status --tail-lines 20
+  tom-v5-status --target-total-episodes 140000
+EOF
+  exit 0
+fi
+
+"$status_cmd" --volume "$volume_default" --output-family "$output_default" --seeds-csv "$seeds_default" "$@"

@@ -1,0 +1,34 @@
+{
+  "auto_reject_reason": null,
+  "baseline_ToMCoordScore": 0.06129999999999999,
+  "baseline_deadlock_rate": 0.1,
+  "baseline_metrics": {
+    "AmbiguityEfficiency": 0.07083333333333332,
+    "AverageDelay": 11.7,
+    "CollisionRate": 0.4,
+    "CoordinationEfficiency": 0.07749999999999999,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.0,
+    "StrategySwitchAccuracy": 0.5,
+    "SuccessRate": 0.5,
+    "ToMCoordScore": 0.06129999999999999
+  },
+  "candidate_ToMCoordScore": 0.2688028027256302,
+  "candidate_deadlock_rate": 0.1,
+  "candidate_metrics": {
+    "AmbiguityEfficiency": 0.18333333333333332,
+    "AverageDelay": 12.35,
+    "CollisionRate": 0.25,
+    "CoordinationEfficiency": 0.15750000000000003,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.47252001946878674,
+    "StrategySwitchAccuracy": 0.5,
+    "SuccessRate": 0.65,
+    "ToMCoordScore": 0.2688028027256302
+  },
+  "deadlock_delta": 0.0,
+  "deadlock_delta_threshold": 0.15,
+  "decision": "keep",
+  "epsilon": 0.02,
+  "selected_variant": "tom"
+}

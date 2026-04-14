@@ -1,0 +1,157 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage:
+  tom-v6-status [--volume NAME] [--output-family NAME] [--target-total-episodes N] [--seeds-csv 7,11,23] [--tail-lines N] [--env NAME]
+
+Defaults:
+  --volume              TOM_V6_MODAL_VOLUME_NAME or tom-v6-omx-full2-runs
+  --output-family       TOM_V6_REMOTE_OUTPUT_FAMILY or v6-omx-full2-promo-candidate
+  --target-total-episodes 140000
+  --seeds-csv           7,11,23
+  --tail-lines          12
+  --env                 MODAL_ENVIRONMENT or main
+
+Examples:
+  tom-v6-status
+  tom-v6-status --volume tom-v6-omx-full2-runs
+  tom-v6-status --seeds-csv 7,11,23 --tail-lines 20
+EOF
+}
+
+volume_name="${TOM_V6_MODAL_VOLUME_NAME:-tom-v6-omx-full2-runs}"
+output_family="${TOM_V6_REMOTE_OUTPUT_FAMILY:-v6-omx-full2-promo-candidate}"
+target_total_episodes=140000
+seeds_csv="7,11,23"
+tail_lines=12
+modal_env="${MODAL_ENVIRONMENT:-main}"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --volume)
+      volume_name="${2:-}"
+      shift 2
+      ;;
+    --output-family)
+      output_family="${2:-}"
+      shift 2
+      ;;
+    --target-total-episodes)
+      target_total_episodes="${2:-}"
+      shift 2
+      ;;
+    --seeds-csv)
+      seeds_csv="${2:-}"
+      shift 2
+      ;;
+    --tail-lines)
+      tail_lines="${2:-}"
+      shift 2
+      ;;
+    --env)
+      modal_env="${2:-}"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unexpected argument: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if ! command -v modal >/dev/null 2>&1; then
+  echo "modal CLI not found in PATH." >&2
+  exit 1
+fi
+
+tmpdir="$(mktemp -d)"
+cleanup() { rm -rf "$tmpdir"; }
+trap cleanup EXIT
+
+printf 'Modal run status check\n'
+printf '  volume: %s\n' "$volume_name"
+printf '  output_family: %s\n' "$output_family"
+printf '  target_total_episodes: %s\n' "$target_total_episodes"
+printf '  seeds: %s\n' "$seeds_csv"
+printf '  env: %s\n' "$modal_env"
+
+IFS=',' read -r -a seeds <<< "$seeds_csv"
+
+for raw_seed in "${seeds[@]}"; do
+  seed="$(echo "$raw_seed" | tr -d '[:space:]')"
+  [[ -n "$seed" ]] || continue
+
+  base="/${output_family}/seed${seed}/target-${target_total_episodes}"
+  run_status_remote="${base}/run_status.json"
+  run_summary_remote="${base}/run_summary.json"
+  stdout_remote="${base}/stdout.log"
+
+  echo
+  echo "===== seed${seed} ====="
+
+  if ! modal volume ls "$volume_name" "$base" --env "$modal_env" >/dev/null 2>&1; then
+    echo "status: not-found (path missing)"
+    echo "path: $base"
+    continue
+  fi
+
+  status_local="${tmpdir}/seed${seed}-run_status.json"
+  if modal volume get "$volume_name" "$run_status_remote" "$status_local" --env "$modal_env" --force >/dev/null 2>&1; then
+    python3 - "$status_local" <<'PY'
+import json, sys
+path = sys.argv[1]
+obj = json.load(open(path, encoding="utf-8"))
+state = obj.get("state", "unknown")
+completed_total = obj.get("completed_total_episodes", "n/a")
+remaining = obj.get("remaining_episodes", "n/a")
+base = obj.get("base_train_episodes", "n/a")
+print(f"run_status.state={state}")
+print(f"base_train_episodes={base}")
+print(f"completed_total_episodes={completed_total}")
+print(f"remaining_episodes={remaining}")
+PY
+  else
+    echo "run_status: missing"
+  fi
+
+  summary_local="${tmpdir}/seed${seed}-run_summary.json"
+  if modal volume get "$volume_name" "$run_summary_remote" "$summary_local" --env "$modal_env" --force >/dev/null 2>&1; then
+    python3 - "$summary_local" <<'PY'
+import json, sys
+path = sys.argv[1]
+obj = json.load(open(path, encoding="utf-8"))
+ret = obj.get("returncode", "n/a")
+mode = obj.get("resume_mode", "n/a")
+metric = None
+ev = obj.get("eval_metrics")
+if isinstance(ev, dict):
+    metric = ev.get("ToMCoordScore")
+print(f"run_summary.returncode={ret}")
+print(f"run_summary.resume_mode={mode}")
+print(f"run_summary.ToMCoordScore={metric if metric is not None else 'n/a'}")
+PY
+  else
+    echo "run_summary: not-yet-written"
+  fi
+
+  stdout_local="${tmpdir}/seed${seed}-stdout.log"
+  if modal volume get "$volume_name" "$stdout_remote" "$stdout_local" --env "$modal_env" --force >/dev/null 2>&1; then
+    last_episode="$(grep -oE 'episode=[0-9]+' "$stdout_local" | tail -n 1 | cut -d= -f2 || true)"
+    if [[ -n "${last_episode:-}" ]]; then
+      echo "last_logged_episode=${last_episode}"
+    else
+      echo "last_logged_episode=n/a"
+    fi
+    echo "--- stdout tail (${tail_lines}) ---"
+    tail -n "$tail_lines" "$stdout_local" || true
+  else
+    echo "stdout.log: missing"
+  fi
+done

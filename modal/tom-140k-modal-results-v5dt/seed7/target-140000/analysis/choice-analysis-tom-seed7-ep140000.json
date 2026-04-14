@@ -1,0 +1,619 @@
+{
+  "choice_context_counts": {
+    "ambiguous_early|probe_gently": 48,
+    "high_conflict_bottleneck|assert": 10,
+    "high_conflict_bottleneck|probe_gently": 16,
+    "high_conflict_bottleneck|proceed": 14,
+    "high_conflict_bottleneck|wait": 4,
+    "high_conflict_bottleneck|yield": 1,
+    "high_urgency|assert": 48,
+    "high_urgency|probe_gently": 36,
+    "high_urgency|proceed": 17,
+    "high_urgency|wait": 16,
+    "normal_flow|probe_gently": 52,
+    "normal_flow|proceed": 26,
+    "normal_flow|wait": 1,
+    "normal_flow|yield": 23
+  },
+  "choice_context_rates": {
+    "ambiguous_early|probe_gently": 0.15384615384615385,
+    "high_conflict_bottleneck|assert": 0.03205128205128205,
+    "high_conflict_bottleneck|probe_gently": 0.05128205128205128,
+    "high_conflict_bottleneck|proceed": 0.04487179487179487,
+    "high_conflict_bottleneck|wait": 0.01282051282051282,
+    "high_conflict_bottleneck|yield": 0.003205128205128205,
+    "high_urgency|assert": 0.15384615384615385,
+    "high_urgency|probe_gently": 0.11538461538461539,
+    "high_urgency|proceed": 0.05448717948717949,
+    "high_urgency|wait": 0.05128205128205128,
+    "normal_flow|probe_gently": 0.16666666666666666,
+    "normal_flow|proceed": 0.08333333333333333,
+    "normal_flow|wait": 0.003205128205128205,
+    "normal_flow|yield": 0.07371794871794872
+  },
+  "context_terminal_outcome_rates": {
+    "ambiguous_early|probe_gently": {
+      "collision": 0.08333333333333333,
+      "deadlock": 0.16666666666666666,
+      "success": 0.5833333333333334,
+      "timeout": 0.16666666666666666
+    },
+    "high_conflict_bottleneck|assert": {
+      "collision": 0.1,
+      "deadlock": 0.2,
+      "success": 0.7,
+      "timeout": 0.0
+    },
+    "high_conflict_bottleneck|probe_gently": {
+      "collision": 0.0,
+      "deadlock": 0.0,
+      "success": 0.5,
+      "timeout": 0.5
+    },
+    "high_conflict_bottleneck|proceed": {
+      "collision": 0.07142857142857142,
+      "deadlock": 0.0,
+      "success": 0.9285714285714286,
+      "timeout": 0.0
+    },
+    "high_conflict_bottleneck|wait": {
+      "collision": 0.25,
+      "deadlock": 0.5,
+      "success": 0.25,
+      "timeout": 0.0
+    },
+    "high_conflict_bottleneck|yield": {
+      "collision": 0.0,
+      "deadlock": 0.0,
+      "success": 0.0,
+      "timeout": 1.0
+    },
+    "high_urgency|assert": {
+      "collision": 0.041666666666666664,
+      "deadlock": 0.375,
+      "success": 0.5833333333333334,
+      "timeout": 0.0
+    },
+    "high_urgency|probe_gently": {
+      "collision": 0.0,
+      "deadlock": 0.0,
+      "success": 1.0,
+      "timeout": 0.0
+    },
+    "high_urgency|proceed": {
+      "collision": 0.0,
+      "deadlock": 0.17647058823529413,
+      "success": 0.8235294117647058,
+      "timeout": 0.0
+    },
+    "high_urgency|wait": {
+      "collision": 0.0625,
+      "deadlock": 0.5,
+      "success": 0.4375,
+      "timeout": 0.0
+    },
+    "normal_flow|probe_gently": {
+      "collision": 0.019230769230769232,
+      "deadlock": 0.0,
+      "success": 0.21153846153846154,
+      "timeout": 0.7692307692307693
+    },
+    "normal_flow|proceed": {
+      "collision": 0.038461538461538464,
+      "deadlock": 0.0,
+      "success": 0.9615384615384616,
+      "timeout": 0.0
+    },
+    "normal_flow|wait": {
+      "collision": 0.0,
+      "deadlock": 0.0,
+      "success": 1.0,
+      "timeout": 0.0
+    },
+    "normal_flow|yield": {
+      "collision": 0.0,
+      "deadlock": 0.0,
+      "success": 0.0,
+      "timeout": 1.0
+    }
+  },
+  "experiment_mask_firing_counts": {
+    "assert_context_mask": 18,
+    "delayed_trust_cooperative_resolution_mask": 16,
+    "early_caution_mask": 21,
+    "false_friend_guard_mask": 20,
+    "late_commit_mask": 103,
+    "late_yield_mask": 110,
+    "opportunism_assert_mask": 11,
+    "opportunism_yield_mask": 18,
+    "recovery_assert_mask": 11,
+    "recovery_yield_mask": 7,
+    "safety_first_mask": 87,
+    "soft_reengage_mask": 19,
+    "urgency_override_mask": 14,
+    "urgent_probe_proceed_bridge_mask": 11,
+    "yield_context_mask": 77
+  },
+  "experiment_mask_firing_rates": {
+    "assert_context_mask": 0.057692307692307696,
+    "delayed_trust_cooperative_resolution_mask": 0.05128205128205128,
+    "early_caution_mask": 0.0673076923076923,
+    "false_friend_guard_mask": 0.0641025641025641,
+    "late_commit_mask": 0.3301282051282051,
+    "late_yield_mask": 0.3525641025641026,
+    "opportunism_assert_mask": 0.035256410256410256,
+    "opportunism_yield_mask": 0.057692307692307696,
+    "recovery_assert_mask": 0.035256410256410256,
+    "recovery_yield_mask": 0.022435897435897436,
+    "safety_first_mask": 0.27884615384615385,
+    "soft_reengage_mask": 0.060897435897435896,
+    "urgency_override_mask": 0.04487179487179487,
+    "urgent_probe_proceed_bridge_mask": 0.035256410256410256,
+    "yield_context_mask": 0.2467948717948718
+  },
+  "mean_context_sensitive_action_regret": 0.17307136413637964,
+  "motivation_profile": {
+    "high_conflict_assertive_rate": 0.5333333333333333,
+    "high_conflict_cautious_rate": 0.4666666666666667
+  },
+  "partner_style_rates": {
+    "partner_type_0": {
+      "assert_rate": 0.0,
+      "probe_gently_rate": 0.5652173913043478,
+      "proceed_rate": 0.41304347826086957,
+      "wait_rate": 0.021739130434782608,
+      "yield_rate": 0.0
+    },
+    "partner_type_1": {
+      "assert_rate": 0.11764705882352941,
+      "probe_gently_rate": 0.5882352941176471,
+      "proceed_rate": 0.03529411764705882,
+      "wait_rate": 0.11764705882352941,
+      "yield_rate": 0.1411764705882353
+    },
+    "partner_type_2": {
+      "assert_rate": 0.44,
+      "probe_gently_rate": 0.13333333333333333,
+      "proceed_rate": 0.4,
+      "wait_rate": 0.02666666666666667,
+      "yield_rate": 0.0
+    },
+    "partner_type_3": {
+      "assert_rate": 0.21739130434782608,
+      "probe_gently_rate": 0.5217391304347826,
+      "proceed_rate": 0.07246376811594203,
+      "wait_rate": 0.10144927536231885,
+      "yield_rate": 0.08695652173913043
+    },
+    "partner_type_4": {
+      "assert_rate": 0.0,
+      "probe_gently_rate": 0.8108108108108109,
+      "proceed_rate": 0.0,
+      "wait_rate": 0.02702702702702703,
+      "yield_rate": 0.16216216216216217
+    }
+  },
+  "scenario_summaries": [
+    {
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9996176958084106,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.06999999999999999,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=low",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "courteous",
+        "timeout_pressure": "low",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "one_line_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "outcome": "collision",
+      "partner_style": "cooperative",
+      "scenario_family": "ambiguous_commit",
+      "switch_delay_after_evidence": 1
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.6724879145622253,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.27,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "courteous",
+        "timeout_pressure": "high",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "one_line_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "outcome": "timeout",
+      "partner_style": "assertive",
+      "scenario_family": "ambiguous_commit",
+      "switch_delay_after_evidence": null
+    },
+    {
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9995799660682678,
+      "belief_shift_moment": 5,
+      "belief_turning_point": 5,
+      "context_sensitive_action_regret": 0.028947368421052635,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "hesitant",
+      "scenario_family": "ambiguous_commit",
+      "switch_delay_after_evidence": 1
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.9998823404312134,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.35,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "opportunistic",
+      "scenario_family": "ambiguous_commit",
+      "switch_delay_after_evidence": null
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.6587358117103577,
+      "belief_shift_moment": 1,
+      "belief_turning_point": 1,
+      "context_sensitive_action_regret": 0.27,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "courteous",
+        "timeout_pressure": "high",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "one_line_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "outcome": "timeout",
+      "partner_style": "deceptive_switching",
+      "scenario_family": "false_friend",
+      "switch_delay_after_evidence": null
+    },
+    {
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9987446069717407,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.41363636363636364,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=low",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "low",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "opportunistic",
+      "scenario_family": "false_friend",
+      "switch_delay_after_evidence": 1
+    },
+    {
+      "action_switch_moment": 2,
+      "action_switch_point": 2,
+      "belief_confidence_peak": 0.9999992847442627,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.0,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "courteous",
+        "timeout_pressure": "high",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "cooperative",
+      "scenario_family": "false_friend",
+      "switch_delay_after_evidence": 0
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.5620208382606506,
+      "belief_shift_moment": 3,
+      "belief_turning_point": 3,
+      "context_sensitive_action_regret": 0.37058823529411766,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "assertive",
+      "scenario_family": "false_friend",
+      "switch_delay_after_evidence": null
+    },
+    {
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9995809197425842,
+      "belief_shift_moment": 5,
+      "belief_turning_point": 5,
+      "context_sensitive_action_regret": 0.028947368421052635,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "hesitant",
+      "scenario_family": "no_progress_switch",
+      "switch_delay_after_evidence": 1
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.6049078106880188,
+      "belief_shift_moment": 3,
+      "belief_turning_point": 3,
+      "context_sensitive_action_regret": 0.3970588235294118,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "cooperative",
+      "scenario_family": "no_progress_switch",
+      "switch_delay_after_evidence": null
+    },
+    {
+      "action_switch_moment": 2,
+      "action_switch_point": 2,
+      "belief_confidence_peak": 0.999998927116394,
+      "belief_shift_moment": 3,
+      "belief_turning_point": 3,
+      "context_sensitive_action_regret": 0.0,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "courteous",
+        "timeout_pressure": "high",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "hesitant",
+      "scenario_family": "no_progress_switch",
+      "switch_delay_after_evidence": 0
+    },
+    {
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9426803588867188,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.15714285714285717,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=low",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "low",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "one_line_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "outcome": "collision",
+      "partner_style": "opportunistic",
+      "scenario_family": "no_progress_switch",
+      "switch_delay_after_evidence": 1
+    },
+    {
+      "action_switch_moment": 4,
+      "action_switch_point": 4,
+      "belief_confidence_peak": 0.9998593330383301,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.1,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "one_line_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "assertive",
+      "scenario_family": "late_disambiguation",
+      "switch_delay_after_evidence": 0
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.9994441866874695,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.31764705882352945,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "courteous",
+        "timeout_pressure": "high",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "deceptive_switching",
+      "scenario_family": "late_disambiguation",
+      "switch_delay_after_evidence": null
+    },
+    {
+      "action_switch_moment": 5,
+      "action_switch_point": 5,
+      "belief_confidence_peak": 0.9999986886978149,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.031818181818181815,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=low",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "courteous",
+        "timeout_pressure": "low",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "cooperative",
+      "scenario_family": "late_disambiguation",
+      "switch_delay_after_evidence": 1
+    },
+    {
+      "action_switch_moment": 4,
+      "action_switch_point": 4,
+      "belief_confidence_peak": 0.9999996423721313,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.0,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "hesitant",
+      "scenario_family": "late_disambiguation",
+      "switch_delay_after_evidence": 0
+    },
+    {
+      "action_switch_moment": 4,
+      "action_switch_point": 4,
+      "belief_confidence_peak": 0.9963730573654175,
+      "belief_shift_moment": 3,
+      "belief_turning_point": 3,
+      "context_sensitive_action_regret": 0.07333333333333333,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "one_line_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "assertive",
+      "scenario_family": "assert_or_yield",
+      "switch_delay_after_evidence": 2
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.6569024324417114,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.27,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "courteous",
+        "timeout_pressure": "high",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "one_line_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "outcome": "timeout",
+      "partner_style": "assertive",
+      "scenario_family": "assert_or_yield",
+      "switch_delay_after_evidence": null
+    },
+    {
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9927625060081482,
+      "belief_shift_moment": null,
+      "belief_turning_point": null,
+      "context_sensitive_action_regret": 0.04230769230769231,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "moderate",
+        "norm": "throughput_biased",
+        "timeout_pressure": "high",
+        "urgency": "high"
+      },
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "one_line_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "opportunistic",
+      "scenario_family": "assert_or_yield",
+      "switch_delay_after_evidence": 1
+    },
+    {
+      "action_switch_moment": null,
+      "action_switch_point": null,
+      "belief_confidence_peak": 0.6688465476036072,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.27,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
+      "context_tag_set": {
+        "margin": "narrow",
+        "norm": "courteous",
+        "timeout_pressure": "high",
+        "urgency": "low"
+      },
+      "human_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "one_line_interpretation": "The learner never found a convincing commitment point before timeout.",
+      "outcome": "timeout",
+      "partner_style": "opportunistic",
+      "scenario_family": "assert_or_yield",
+      "switch_delay_after_evidence": null
+    }
+  ],
+  "scenarios_evaluated": 20
+}

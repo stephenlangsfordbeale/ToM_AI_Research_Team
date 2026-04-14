@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_path="$(python3 - <<'PY' "${BASH_SOURCE[0]}"
+import os, sys
+print(os.path.realpath(sys.argv[1]))
+PY
+)"
+script_dir="$(cd "$(dirname "$script_path")" && pwd)"
+stamp="${TOM_RUN_STAMP:-$(date +%Y%m%d-%H%M%S)}"
+
+export TOM_PROJECT_ROOT="${TOM_PROJECT_ROOT:-$script_dir}"
+export TOM_INCUMBENT_FAMILY="${TOM_INCUMBENT_FAMILY:-v5-delayedtrust-split-candidate}"
+export TOM_V5_MODAL_APP_NAME="${TOM_V5_MODAL_APP_NAME:-tom-v5-delayedtrust-runner-$stamp}"
+export TOM_V5_MODAL_VOLUME_NAME="${TOM_V5_MODAL_VOLUME_NAME:-tom-v5-delayedtrust-runs-$stamp}"
+export TOM_V5_WAIT_FOR_RESULTS="${TOM_V5_WAIT_FOR_RESULTS:-1}"
+
+cd "$script_dir"
+
+printf 'Launching v5 multiseed continuation\n'
+printf '  mode: wait\n'
+printf '  app_name: %s\n' "$TOM_V5_MODAL_APP_NAME"
+printf '  volume_name: %s\n' "$TOM_V5_MODAL_VOLUME_NAME"
+
+exec modal run scripts/modal_v5_runner.py "$@"
+

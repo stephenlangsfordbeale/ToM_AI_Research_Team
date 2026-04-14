@@ -57,8 +57,10 @@ It is written for research safety first: confirmed facts are separated from infe
   Runtime/session tooling state.
 - `.venv*`, `__pycache__/`
   Local environment caches.
-- Root markdown files such as `# Mission.md`, `Pre-mission briefing.md`, `program.md`
-  Research notes and project context outside `docs/`.
+- Top-level brief `program.md`
+  Active concise project brief outside `docs/`.
+- Archived legacy instruction briefs under `archive/instructions/top-level/`
+  Historical instruction context kept for reference (for example former `# Mission.md` and Azure upload checklist).
 - `# ToM autorsearch experiment/`
   A non-code top-level folder that does not appear to be part of the canonical local-first workflow.
 
@@ -212,11 +214,11 @@ Confirmed behavior:
 ### Prompts and AI workflow assets
 
 - `.github/prompts/`
-  Prompt templates for overnight sessions and run-note appends.
+  (May be empty if legacy prompts were archived under `archive/instructions/github/prompts/`.)
 - `.github/agents/`
-  Agent role descriptions such as `PLANNER`, `RESEARCHER`, `CRITIC`, and `CONTROLLER`.
-- `.github/instructions/train-py-research.instructions.md`
-  Focused editing guardrails for `train.py`.
+  (May be empty if legacy role prompts were archived under `archive/instructions/github/agents/`.)
+- `archive/instructions/github/`
+  Archived GitHub Copilot instruction/prompt/agent assets retained for referral and recovery.
 
 ### Datasets
 

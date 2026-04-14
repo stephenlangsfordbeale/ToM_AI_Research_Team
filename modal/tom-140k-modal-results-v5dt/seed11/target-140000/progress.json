@@ -1,0 +1,14 @@
+{
+  "artifact_episode_tag": 140000,
+  "base_train_episodes": 800,
+  "completed_additional_episodes": 139200,
+  "completed_chunk_episodes": 65200,
+  "completed_total_episodes": 140000,
+  "is_final": true,
+  "latest_checkpoint": "/root/outputs/v6-omx-full2-promo-candidate/seed11/target-140000/checkpoints/latest-tom_seed11.pt",
+  "latest_curve": "/root/outputs/v6-omx-full2-promo-candidate/seed11/target-140000/curves/latest-curve-tom-seed11.csv",
+  "remaining_total_episodes": 0,
+  "reported_train_episodes": 140000,
+  "seed": 11,
+  "variant": "tom"
+}

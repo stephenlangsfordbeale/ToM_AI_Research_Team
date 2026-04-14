@@ -1,0 +1,25 @@
+{
+  "checkpoint_source": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/v3omx_delayedtrust_promo_seed23/candidate_metrics/_checkpoints/tom_seed23.pt",
+  "copied_analysis": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/v3omx_delayedtrust_promo_seed23/candidate_metrics/choice_analysis.json",
+  "copied_curve": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/v3omx_delayedtrust_promo_seed23/candidate_metrics/learning_curve.csv",
+  "copied_model": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/v3omx_delayedtrust_promo_seed23/candidate_model/model.pt",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.12916666666666665,
+    "AverageDelay": 11.6,
+    "CollisionRate": 0.3,
+    "CoordinationEfficiency": 0.14500000000000002,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.4450874299572155,
+    "StrategySwitchAccuracy": 0.55,
+    "SuccessRate": 0.6,
+    "ToMCoordScore": 0.2284622401940102
+  },
+  "max_steps": 20,
+  "seed": 23,
+  "tom_belief_uncertainty_threshold": 0.6,
+  "tom_context_tag_threshold": 0.55,
+  "tom_experiment": "contextual_right_of_way_switch",
+  "tom_experiment_strength": 0.25,
+  "train_episodes": 800,
+  "variant": "tom"
+}

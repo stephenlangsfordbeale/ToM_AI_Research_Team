@@ -78,3 +78,12 @@ Combined salvage references:
 - Relative to the local `800` baseline line, long-run `140000` results look materially stronger on headline score and collision reduction, especially on `seed7`.
 - However, the salvaged long-run pair is still single-seed evidence and does not replace the canonical reusable 1/3/5 multiseed gate workflow.
 - Treat the `800` promotion gate above as the canonical promotion evidence, and treat the salvaged `140000` runs as strong supporting branch-history and provenance evidence.
+
+## Packaged seed snapshots for multiseed continuation
+
+This incumbent folder now includes packaged `selected_model.pt` warm starts for:
+- `seed7`
+- `seed11`
+- `seed23`
+
+These are all from the same `800`-episode promoted family spec and are ready for 800 -> 140000 continuation studies.

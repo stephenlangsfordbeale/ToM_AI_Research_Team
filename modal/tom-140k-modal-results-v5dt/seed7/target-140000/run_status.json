@@ -1,0 +1,23 @@
+{
+  "base_train_episodes": 800,
+  "commit_interval_seconds": 60,
+  "completed_additional_episodes": 139200,
+  "completed_chunk_episodes": 71200,
+  "completed_total_episodes": 140000,
+  "incumbent_family": "v6-omx-full2-promo-candidate",
+  "initial_checkpoint": "/root/incumbent/v6-omx-full2-promo-candidate/seed7/selected_model.pt",
+  "last_progress_sync_at": "2026-04-14T06:54:50.787492Z",
+  "last_status_update_at": "2026-04-14T06:54:54.528456Z",
+  "output_family": "v6-omx-full2-promo-candidate",
+  "progress_artifact_episode_tag": 140000,
+  "progress_is_final": true,
+  "progress_latest_checkpoint": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000/checkpoints/latest-tom_seed7.pt",
+  "progress_latest_curve": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000/curves/latest-curve-tom-seed7.csv",
+  "progress_reported_train_episodes": 140000,
+  "remaining_episodes": 0,
+  "resume_checkpoint": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000/checkpoints/latest-tom_seed7.pt",
+  "save_every": 2000,
+  "seed": 7,
+  "state": "completed",
+  "target_total_episodes": 140000
+}

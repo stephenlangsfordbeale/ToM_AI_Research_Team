@@ -1,0 +1,27 @@
+{
+  "additional_train_episodes": 139200,
+  "choice_analysis_json": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000/analysis/choice-analysis-tom-seed7-ep140000.json",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.15,
+    "AverageDelay": 15.5,
+    "CollisionRate": 0.1,
+    "CoordinationEfficiency": 0.1025,
+    "DeadlockRate": 0.15,
+    "IntentionPredictionF1": 0.718654848380682,
+    "StrategySwitchAccuracy": 0.95,
+    "SuccessRate": 0.55,
+    "ToMCoordScore": 0.39206167877329545
+  },
+  "incumbent_family": "v6-omx-full2-promo-candidate",
+  "initial_checkpoint": "/root/incumbent/v6-omx-full2-promo-candidate/seed7/selected_model.pt",
+  "initial_checkpoint_train_episodes": 800,
+  "learning_curve_csv": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000/curves/curve-tom-seed7-ep140000.csv",
+  "output_dir": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000",
+  "output_family": "v6-omx-full2-promo-candidate",
+  "resume_checkpoint": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000/checkpoints/latest-tom_seed7.pt",
+  "resume_mode": "resumed",
+  "returncode": 0,
+  "saved_checkpoint": "/root/outputs/v6-omx-full2-promo-candidate/seed7/target-140000/checkpoints/tom_seed7.pt",
+  "seed": 7,
+  "target_total_episodes": 140000
+}

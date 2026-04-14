@@ -1,0 +1,43 @@
+{
+  "baseline_metrics_dir": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/baseline_metrics",
+  "baseline_model_dir": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/baseline_model",
+  "candidate_metrics_dir": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/candidate_metrics",
+  "candidate_model_dir": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/candidate_model",
+  "output_root": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7",
+  "selected_model_dir": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/selected_model",
+  "selection": {
+    "auto_reject_reason": null,
+    "baseline_ToMCoordScore": 0.09940000000000002,
+    "baseline_deadlock_rate": 0.1,
+    "baseline_metrics": {
+      "AmbiguityEfficiency": 0.07083333333333332,
+      "AverageDelay": 12.0,
+      "CollisionRate": 0.35,
+      "CoordinationEfficiency": 0.0925,
+      "DeadlockRate": 0.1,
+      "IntentionPredictionF1": 0.0,
+      "StrategySwitchAccuracy": 0.5,
+      "SuccessRate": 0.55,
+      "ToMCoordScore": 0.09940000000000002
+    },
+    "candidate_ToMCoordScore": 0.16730034629782103,
+    "candidate_deadlock_rate": 0.1,
+    "candidate_metrics": {
+      "AmbiguityEfficiency": 0.10833333333333332,
+      "AverageDelay": 11.8,
+      "CollisionRate": 0.35,
+      "CoordinationEfficiency": 0.09999999999999999,
+      "DeadlockRate": 0.1,
+      "IntentionPredictionF1": 0.4242881878415786,
+      "StrategySwitchAccuracy": 0.5,
+      "SuccessRate": 0.55,
+      "ToMCoordScore": 0.16730034629782103
+    },
+    "deadlock_delta": 0.0,
+    "deadlock_delta_threshold": 0.15,
+    "decision": "keep",
+    "epsilon": 0.02,
+    "selected_variant": "tom"
+  },
+  "selection_output_dir": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/selection"
+}

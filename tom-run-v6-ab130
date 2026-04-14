@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_path="$(python3 - <<'PY' "${BASH_SOURCE[0]}"
+import os, sys
+print(os.path.realpath(sys.argv[1]))
+PY
+)"
+script_dir="$(cd "$(dirname "$script_path")" && pwd)"
+stamp="${TOM_RUN_STAMP:-$(date +%Y%m%d-%H%M%S)}"
+
+export TOM_PROJECT_ROOT="${TOM_PROJECT_ROOT:-$script_dir}"
+export TOM_INCUMBENT_FAMILY="${TOM_INCUMBENT_FAMILY:-v6-baseline-f1zero-seed7-11-23-candidate}"
+export TOM_V6_MODAL_APP_NAME="${TOM_V6_MODAL_APP_NAME:-tom-v6-ab130-runner-$stamp}"
+export TOM_V6_MODAL_VOLUME_NAME="${TOM_V6_MODAL_VOLUME_NAME:-tom-v6-ab130-runs-$stamp}"
+export TOM_V6_REMOTE_OUTPUT_FAMILY="${TOM_V6_REMOTE_OUTPUT_FAMILY:-v6-baseline-f1zero-ab130}"
+export TOM_V6_WAIT_FOR_RESULTS="${TOM_V6_WAIT_FOR_RESULTS:-1}"
+
+# Keep this lane on the ambiguous-bottleneck baseline context
+# (baseline warm starts with F1≈0.00, then continue to 130k).
+export TOM_RUNNER_TOM_EXPERIMENT="${TOM_RUNNER_TOM_EXPERIMENT:-none}"
+
+cd "$script_dir"
+
+printf 'Launching v6 baseline-F1zero ambiguous-bottleneck lane\n'
+printf '  mode: wait\n'
+printf '  tom_experiment: %s\n' "$TOM_RUNNER_TOM_EXPERIMENT"
+printf '  incumbent_family: %s\n' "$TOM_INCUMBENT_FAMILY"
+printf '  output_family: %s\n' "$TOM_V6_REMOTE_OUTPUT_FAMILY"
+printf '  app_name: %s\n' "$TOM_V6_MODAL_APP_NAME"
+printf '  volume_name: %s\n' "$TOM_V6_MODAL_VOLUME_NAME"
+
+exec modal run scripts/modal_v6_runner.py --target-total-episodes 130000 --seeds-csv 7,11,23 "$@"
