@@ -1,0 +1,27 @@
+{
+  "additional_train_episodes": 139200,
+  "choice_analysis_json": "/root/outputs/v5-delayedtrust-split-candidate/seed7/target-140000/analysis/choice-analysis-tom-seed7-ep140000.json",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.15416666666666665,
+    "AverageDelay": 14.95,
+    "CollisionRate": 0.15,
+    "CoordinationEfficiency": 0.1075,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.7086313962445192,
+    "StrategySwitchAccuracy": 0.9,
+    "SuccessRate": 0.55,
+    "ToMCoordScore": 0.3744083954742327
+  },
+  "incumbent_family": "v5-delayedtrust-split-candidate",
+  "initial_checkpoint": "/root/incumbent/v5-delayedtrust-split-candidate/seed7/selected_model.pt",
+  "initial_checkpoint_train_episodes": 800,
+  "learning_curve_csv": "/root/outputs/v5-delayedtrust-split-candidate/seed7/target-140000/curves/curve-tom-seed7-ep140000.csv",
+  "output_dir": "/root/outputs/v5-delayedtrust-split-candidate/seed7/target-140000",
+  "output_family": "v5-delayedtrust-split-candidate",
+  "resume_checkpoint": "/root/incumbent/v5-delayedtrust-split-candidate/seed7/selected_model.pt",
+  "resume_mode": "fresh_from_incumbent",
+  "returncode": 0,
+  "saved_checkpoint": "/root/outputs/v5-delayedtrust-split-candidate/seed7/target-140000/checkpoints/tom_seed7.pt",
+  "seed": 7,
+  "target_total_episodes": 140000
+}
