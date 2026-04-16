@@ -1,0 +1,25 @@
+{
+  "checkpoint_source": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/baseline_metrics/_checkpoints/baseline_seed7.pt",
+  "copied_analysis": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/baseline_metrics/choice_analysis.json",
+  "copied_curve": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/baseline_metrics/learning_curve.csv",
+  "copied_model": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/baseline_model/model.pt",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.07083333333333332,
+    "AverageDelay": 12.0,
+    "CollisionRate": 0.35,
+    "CoordinationEfficiency": 0.0925,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.0,
+    "StrategySwitchAccuracy": 0.5,
+    "SuccessRate": 0.55,
+    "ToMCoordScore": 0.09940000000000002
+  },
+  "max_steps": 20,
+  "seed": 7,
+  "tom_belief_uncertainty_threshold": 0.6,
+  "tom_context_tag_threshold": 0.55,
+  "tom_experiment": "none",
+  "tom_experiment_strength": 0.25,
+  "train_episodes": 800,
+  "variant": "baseline"
+}

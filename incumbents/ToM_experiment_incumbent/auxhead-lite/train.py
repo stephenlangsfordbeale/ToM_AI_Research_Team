@@ -397,10 +397,32 @@ def build_policy_runner(model: PolicyModel, device: torch.device):
         with torch.no_grad():
             logits, new_state, extra = model.step(obs_t, state_t)
             action = int(torch.argmax(logits, dim=-1).item())
-            out: Dict[str, np.ndarray] = {"action": np.array(action, dtype=np.int64), "state": new_state.cpu().numpy()}
+
+            out: Dict[str, np.ndarray] = {
+                "action": np.array(action, dtype=np.int64),
+                "state": new_state.cpu().numpy(),
+            }
+
+            action_probs = F.softmax(logits, dim=-1)
+            topk = torch.topk(action_probs, k=min(2, action_probs.shape[-1]), dim=-1).values.squeeze(0)
+            if topk.numel() >= 2:
+                action_confidence_margin = float((topk[0] - topk[1]).item())
+            else:
+                action_confidence_margin = 1.0
+            out["action_confidence_margin"] = np.array(action_confidence_margin, dtype=np.float32)
+
             if "belief" in extra:
-                out["belief_class"] = np.array(int(torch.argmax(extra["belief"], dim=-1).item()), dtype=np.int64)
-                out["belief_confidence"] = np.array(float(torch.max(extra["belief"], dim=-1).values.item()), dtype=np.float32)
+                belief = extra["belief"]
+                out["belief_class"] = np.array(int(torch.argmax(belief, dim=-1).item()), dtype=np.int64)
+                out["belief_confidence"] = np.array(float(torch.max(belief, dim=-1).values.item()), dtype=np.float32)
+
+                belief_entropy = -(belief * torch.log(belief.clamp_min(1e-8))).sum(dim=-1)
+                max_entropy = float(np.log(max(2, belief.shape[-1])))
+                normalized_belief_entropy = float((belief_entropy / max_entropy).item())
+                out["belief_entropy"] = np.array(normalized_belief_entropy, dtype=np.float32)
+
+                out["belief_probs"] = belief.squeeze(0).cpu().numpy().astype(np.float32)
+
             for key in (
                 "experiment_mask",
                 "assert_context_mask",
@@ -448,8 +470,15 @@ def analyze_choice_context_outcomes(
         chosen_keys: List[str] = []
         final_info: Optional[Dict[str, float]] = None
         action_history: List[int] = []
+        action_label_history: List[str] = []
         belief_history: List[Optional[int]] = []
         belief_confidences: List[float] = []
+        belief_entropies: List[float] = []
+        belief_probs_trace: List[List[float]] = []
+        action_confidence_margins: List[float] = []
+        context_trace: List[str] = []
+        evidence_released_trace: List[int] = []
+
 
         while not done:
             obs_pre = obs.copy()
@@ -457,14 +486,35 @@ def analyze_choice_context_outcomes(
             action = int(out["action"])
             state = out.get("state")
             action_history.append(action)
+            action_label_history.append(ACTION_NAMES.get(action, f"action_{action}"))
             belief_history.append(int(out["belief_class"])) if "belief_class" in out else belief_history.append(None)
             belief_confidences.append(float(out.get("belief_confidence", 0.0)))
+            belief_entropies.append(float(out.get("belief_entropy", 0.0)))
+
+            belief_probs = out.get("belief_probs")
+            if belief_probs is None:
+                belief_probs_trace.append([])
+            else:
+                belief_probs_trace.append([float(x) for x in belief_probs.tolist()])
+
+            action_confidence_margins.append(float(out.get("action_confidence_margin", 0.0)))
 
             for mask_key in (
                 "experiment_mask",
                 "assert_context_mask",
                 "yield_context_mask",
+                "safety_first_mask",
+                "urgency_override_mask",
+                "urgent_probe_proceed_bridge_mask",
+                "opportunism_assert_mask",
+                "opportunism_yield_mask",
+                "recovery_yield_mask",
+                "recovery_assert_mask",
                 "early_caution_mask",
+                "false_friend_guard_mask",
+                "delayed_trust_cooperative_resolution_mask",
+                "delayed_trust_probe_mask",
+                "soft_reengage_mask",
                 "late_yield_mask",
                 "late_commit_mask",
             ):
@@ -476,6 +526,7 @@ def analyze_choice_context_outcomes(
             urgent = float(obs_pre[5]) >= urgency_threshold
             evidence_released = float(obs_pre[8]) >= urgency_threshold
 
+
             if conflict_near and bottleneck_near:
                 context = "high_conflict_bottleneck"
             elif not evidence_released:
@@ -484,6 +535,10 @@ def analyze_choice_context_outcomes(
                 context = "high_urgency"
             else:
                 context = "normal_flow"
+            
+            context_trace.append(context)
+            evidence_released_trace.append(int(evidence_released))
+
 
             style = ACTION_NAMES.get(action, f"action_{action}")
 
@@ -564,6 +619,16 @@ def analyze_choice_context_outcomes(
                 "outcome": terminal,
                 "human_interpretation": human_interpretation,
                 "belief_confidence_peak": max(belief_confidences) if belief_confidences else 0.0,
+                "belief_confidence_trace": belief_confidences,
+                "belief_entropy_trace": belief_entropies,
+                "belief_probs_trace": belief_probs_trace,
+                "belief_class_trace": belief_history,
+                "action_trace": action_history,
+                "action_label_trace": action_label_history,
+                "action_confidence_margin_trace": action_confidence_margins,
+                "context_trace": context_trace,
+                "evidence_released_trace": evidence_released_trace,
+
             }
         )
 

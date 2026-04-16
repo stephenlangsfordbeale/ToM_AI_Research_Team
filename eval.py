@@ -6,10 +6,8 @@ from typing import Callable, Dict, List, Optional
 import numpy as np
 
 from env import (
-    ASSERT,
     PARTNER_TYPES,
     PROBE,
-    PROCEED,
     WAIT,
     Scenario,
     ToMCoordinationEnv,
