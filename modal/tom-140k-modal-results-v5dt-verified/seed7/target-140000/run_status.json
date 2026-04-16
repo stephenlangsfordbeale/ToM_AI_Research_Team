@@ -1,0 +1,23 @@
+{
+  "base_train_episodes": 800,
+  "commit_interval_seconds": 60,
+  "completed_additional_episodes": 139200,
+  "completed_chunk_episodes": 139200,
+  "completed_total_episodes": 140000,
+  "incumbent_family": "v5-delayedtrust-split-candidate",
+  "initial_checkpoint": "/root/incumbent/v5-delayedtrust-split-candidate/seed7/selected_model.pt",
+  "last_progress_sync_at": "2026-04-14T09:41:19.008244Z",
+  "last_status_update_at": "2026-04-14T09:41:23.445384Z",
+  "output_family": "v5-delayedtrust-split-candidate",
+  "progress_artifact_episode_tag": 140000,
+  "progress_is_final": true,
+  "progress_latest_checkpoint": "/root/outputs/v5-delayedtrust-split-candidate/seed7/target-140000/checkpoints/latest-tom_seed7.pt",
+  "progress_latest_curve": "/root/outputs/v5-delayedtrust-split-candidate/seed7/target-140000/curves/latest-curve-tom-seed7.csv",
+  "progress_reported_train_episodes": 140000,
+  "remaining_episodes": 0,
+  "resume_checkpoint": "/root/incumbent/v5-delayedtrust-split-candidate/seed7/selected_model.pt",
+  "save_every": 2000,
+  "seed": 7,
+  "state": "completed",
+  "target_total_episodes": 140000
+}

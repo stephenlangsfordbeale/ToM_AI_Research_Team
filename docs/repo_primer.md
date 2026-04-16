@@ -170,6 +170,13 @@ Confirmed behavior:
 - evaluates with `eval.py`
 - emits checkpoints, curves, and choice analysis
 - supports warm-starting with `--init-checkpoint`
+- embeds `checkpoint_metadata.created_at_utc` plus repo/progress metadata inside newly saved checkpoints
+
+Checkpoint inventory helper:
+
+```bash
+python scripts/checkpoint_inventory.py --output logs/checkpoint_inventory.json
+```
 
 ### 3. Azure ML pipeline path
 

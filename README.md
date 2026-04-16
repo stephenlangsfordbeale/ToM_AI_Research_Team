@@ -57,6 +57,24 @@ Each `metrics.json` includes:
 - `copied_analysis`
 - ToM experiment settings
 
+Checkpoint payloads saved by `train.py` now also embed `checkpoint_metadata`, including:
+- `created_at_utc`
+- `saved_from_repo_root`
+- `git_commit`
+- seed / variant / episode progress fields
+
+Inventory existing checkpoints without rewriting them:
+
+```bash
+python scripts/checkpoint_inventory.py --output logs/checkpoint_inventory.json
+```
+
+Write sidecar metadata JSON files next to each `.pt` checkpoint:
+
+```bash
+python scripts/checkpoint_inventory.py --write-sidecars
+```
+
 ## Exact Commands
 Create the environment:
 

@@ -3,9 +3,12 @@ from __future__ import annotations
 import argparse
 import csv
 from dataclasses import asdict
+from datetime import datetime, timezone
 import json
 import os
+from pathlib import Path
 import random
+import subprocess
 from typing import Dict, List, Optional, Protocol, Tuple
 
 import numpy as np
@@ -29,6 +32,26 @@ from eval import EvalMetrics, evaluate_policy
 
 
 TOM_EXPERIMENTS = ("none", "belief_uncertainty_wait", "contextual_right_of_way_switch")
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def _git_commit(repo_root: Path) -> Optional[str]:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=str(repo_root),
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+    commit = result.stdout.strip()
+    return commit or None
 
 
 class BaselinePolicy(nn.Module):
@@ -1043,6 +1066,9 @@ def train(args: argparse.Namespace) -> EvalMetrics:
     for _ in range(max(0, args.episode_offset)):
         scenario_rng.randint(10_000, 999_999)
 
+    repo_root = Path(__file__).resolve().parent
+    git_commit = _git_commit(repo_root)
+
     def _artifact_episode_tag() -> int:
         return args.artifact_episode_tag if args.artifact_episode_tag > 0 else args.episode_offset + args.train_episodes
 
@@ -1053,10 +1079,24 @@ def train(args: argparse.Namespace) -> EvalMetrics:
         checkpoint_args["train_episodes"] = int(reported_train_episodes)
         checkpoint_args["completed_chunk_episodes"] = int(completed_chunk_episodes)
         checkpoint_args["completed_total_episodes"] = int(completed_total_episodes)
+        checkpoint_metadata = {
+            "created_at_utc": _utc_now_iso(),
+            "saved_from_repo_root": str(repo_root),
+            "git_commit": git_commit,
+            "seed": int(args.seed),
+            "variant": args.variant,
+            "base_train_episodes": int(args.base_train_episodes),
+            "completed_chunk_episodes": int(completed_chunk_episodes),
+            "completed_total_episodes": int(completed_total_episodes),
+            "reported_train_episodes": int(reported_train_episodes),
+            "episode_offset": int(args.episode_offset),
+            "init_checkpoint": args.init_checkpoint,
+        }
         return {
             "variant": args.variant,
             "state_dict": model.state_dict(),
             "args": checkpoint_args,
+            "checkpoint_metadata": checkpoint_metadata,
             "progress": {
                 "completed_chunk_episodes": int(completed_chunk_episodes),
                 "completed_total_episodes": int(completed_total_episodes),
