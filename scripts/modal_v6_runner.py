@@ -58,6 +58,30 @@ DEFAULT_SEEDS = (7, 11, 23)
 
 WAIT_FOR_RESULTS = os.environ.get("TOM_V6_WAIT_FOR_RESULTS", "1").lower() not in {"0", "false", "no"}
 
+REMOTE_ENV = {
+    "TOM_INCUMBENT_FAMILY": INCUMBENT_FAMILY,
+    "TOM_V6_MODAL_APP_NAME": APP_NAME,
+    "TOM_V6_MODAL_VOLUME_NAME": DEFAULT_VOLUME_NAME,
+    "TOM_V6_REMOTE_OUTPUT_FAMILY": REMOTE_OUTPUT_FAMILY,
+    "TOM_V6_WAIT_FOR_RESULTS": "1" if WAIT_FOR_RESULTS else "0",
+}
+
+for env_key in (
+    "TOM_RUNNER_TOM_EXPERIMENT",
+    "TOM_RUNNER_TOM_EXPERIMENT_STRENGTH",
+    "TOM_RUNNER_TOM_BELIEF_UNCERTAINTY_THRESHOLD",
+    "TOM_RUNNER_TOM_CONTEXT_TAG_THRESHOLD",
+    "TOM_RUNNER_TOM_PROCEED_SAFETY_PENALTY",
+    "TOM_RUNNER_TOM_CONFLICT_DIST_THRESHOLD",
+    "TOM_RUNNER_TOM_BOTTLENECK_DIST_THRESHOLD",
+    "TOM_RUNNER_ANALYSIS_CONFLICT_DIST_THRESHOLD",
+    "TOM_RUNNER_ANALYSIS_BOTTLENECK_DIST_THRESHOLD",
+    "TOM_RUNNER_ANALYSIS_URGENCY_THRESHOLD",
+):
+    env_value = os.environ.get(env_key)
+    if env_value is not None and env_value.strip() != "":
+        REMOTE_ENV[env_key] = env_value.strip()
+
 
 def _parse_prefixed_line(stdout: str, prefix: str) -> str | None:
     for line in stdout.splitlines():
@@ -243,6 +267,7 @@ def _extract_progress_status_fields(
 
 image = (
     modal.Image.debian_slim()
+    .env(REMOTE_ENV)
     .pip_install_from_requirements(str(PROJECT_ROOT / "requirements.txt"))
     .add_local_file(PROJECT_ROOT / "train.py", remote_path=str(REMOTE_PROJECT_ROOT / "train.py"))
     .add_local_file(PROJECT_ROOT / "env.py", remote_path=str(REMOTE_PROJECT_ROOT / "env.py"))
