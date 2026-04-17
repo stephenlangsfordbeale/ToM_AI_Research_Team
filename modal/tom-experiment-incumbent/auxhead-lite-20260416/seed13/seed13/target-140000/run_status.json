@@ -1,0 +1,23 @@
+{
+  "base_train_episodes": 800,
+  "commit_interval_seconds": 60,
+  "completed_additional_episodes": 139200,
+  "completed_chunk_episodes": 139200,
+  "completed_total_episodes": 140000,
+  "incumbent_family": "auxhead-lite",
+  "initial_checkpoint": "/root/incumbent/auxhead-lite/seed13/selected_model.pt",
+  "last_progress_sync_at": "2026-04-16T15:17:32.209187Z",
+  "last_status_update_at": "2026-04-16T15:17:36.284805Z",
+  "output_family": "auxhead-lite",
+  "progress_artifact_episode_tag": 140000,
+  "progress_is_final": true,
+  "progress_latest_checkpoint": "/root/outputs/auxhead-lite/seed13/target-140000/checkpoints/latest-tom_seed13.pt",
+  "progress_latest_curve": "/root/outputs/auxhead-lite/seed13/target-140000/curves/latest-curve-tom-seed13.csv",
+  "progress_reported_train_episodes": 140000,
+  "remaining_episodes": 0,
+  "resume_checkpoint": "/root/incumbent/auxhead-lite/seed13/selected_model.pt",
+  "save_every": 2000,
+  "seed": 13,
+  "state": "completed",
+  "target_total_episodes": 140000
+}

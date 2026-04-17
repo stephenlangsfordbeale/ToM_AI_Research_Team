@@ -57,6 +57,71 @@ Auxhead-lite beats deadlock-micro on the primary score on both seeds while keepi
 
 The improvement appears to come mostly from better resolution in `late_disambiguation` and `no_progress_switch`, not from broad gains in every family.
 
+## Update 16.04.26
+
+To enable multiseed 3 and 5-gate comparisons v2 aux-lite versions of seeds 17, 23 were added to the incumbent folder with the following specs. 'seed13' has a slightly worse deadlock rate to baseline but still shows improvement in other metrics.
+
+### Seed 13
+
+Baseline:
+- `ToMCoordScore`: `0.025250000000000022`
+- `SuccessRate`: `0.25`
+- `CollisionRate`: `0.25`
+- `DeadlockRate`: `0.5`
+- `AmbiguityEfficiency`: `0.09583333333333333`
+- `IntentionPredictionF1`: `0.0`
+- `AverageDelay`: `11.4`
+
+Auxhead-lite:
+- `ToMCoordScore`: `0.07816039282920942`
+- `SuccessRate`: `0.25`
+- `CollisionRate`: `0.2`
+- `DeadlockRate`: `0.55`
+- `AmbiguityEfficiency`: `0.06666666666666667`
+- `IntentionPredictionF1`: `0.38507423449435324`
+- `AverageDelay`: `12.2`
+
+### Seed 17
+
+Baseline:
+- `ToMCoordScore`: `0.03685000000000008`
+- `SuccessRate`: `0.25`
+- `CollisionRate`: `0.25`
+- `DeadlockRate`: `0.5`
+- `AmbiguityEfficiency`: `0.13333333333333333`
+- `IntentionPredictionF1`: `0.0`
+- `AverageDelay`: `11.0`
+
+Auxhead-lite:
+- `ToMCoordScore`: `0.12682726164220032`
+- `SuccessRate`: `0.3`
+- `CollisionRate`: `0.2`
+- `DeadlockRate`: `0.5`
+- `AmbiguityEfficiency`: `0.08750000000000001`
+- `IntentionPredictionF1`: `0.4719804403014307`
+- `AverageDelay`: `11.8`
+
+### Seed 23
+
+Baseline:
+- `ToMCoordScore`: `-0.07005`
+- `SuccessRate`: `0.15`
+- `CollisionRate`: `0.35`
+- `DeadlockRate`: `0.5`
+- `AmbiguityEfficiency`: `0.0`
+- `IntentionPredictionF1`: `0.0`
+- `AverageDelay`: `10.6`
+
+Auxhead-lite:
+- `ToMCoordScore`: `0.12485602724152015`
+- `SuccessRate`: `0.3`
+- `CollisionRate`: `0.2`
+- `DeadlockRate`: `0.5`
+- `AmbiguityEfficiency`: `0.11666666666666665`
+- `IntentionPredictionF1`: `0.392185908868001`
+- `AverageDelay`: `11.4`
+
+
 ## Stored Artifacts
 
 - [`/Users/stephenbeale/Projects/ToM_AI_Research_Team/incumbents/ToM_experiment_incumbent/auxhead-lite/train.py`](/Users/stephenbeale/Projects/ToM_AI_Research_Team/incumbents/ToM_experiment_incumbent/auxhead-lite/train.py)

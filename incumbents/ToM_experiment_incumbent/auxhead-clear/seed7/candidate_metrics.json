@@ -1,0 +1,25 @@
+{
+  "checkpoint_source": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/candidate_metrics/_checkpoints/tom_seed7.pt",
+  "copied_analysis": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/candidate_metrics/choice_analysis.json",
+  "copied_curve": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/candidate_metrics/learning_curve.csv",
+  "copied_model": "/Users/stephenbeale/Projects/ToM_AI_Research_Team/logs/omx_full_2_seed7/candidate_model/model.pt",
+  "eval_metrics": {
+    "AmbiguityEfficiency": 0.10833333333333332,
+    "AverageDelay": 11.8,
+    "CollisionRate": 0.35,
+    "CoordinationEfficiency": 0.09999999999999999,
+    "DeadlockRate": 0.1,
+    "IntentionPredictionF1": 0.4242881878415786,
+    "StrategySwitchAccuracy": 0.5,
+    "SuccessRate": 0.55,
+    "ToMCoordScore": 0.16730034629782103
+  },
+  "max_steps": 20,
+  "seed": 7,
+  "tom_belief_uncertainty_threshold": 0.6,
+  "tom_context_tag_threshold": 0.55,
+  "tom_experiment": "contextual_right_of_way_switch",
+  "tom_experiment_strength": 0.25,
+  "train_episodes": 800,
+  "variant": "tom"
+}

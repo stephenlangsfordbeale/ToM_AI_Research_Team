@@ -2,40 +2,40 @@
   "choice_context_counts": {
     "ambiguous_early|probe_gently": 48,
     "high_conflict_bottleneck|assert": 10,
-    "high_conflict_bottleneck|probe_gently": 13,
-    "high_conflict_bottleneck|proceed": 15,
-    "high_conflict_bottleneck|wait": 2,
-    "high_conflict_bottleneck|yield": 4,
-    "high_urgency|assert": 48,
-    "high_urgency|probe_gently": 25,
-    "high_urgency|proceed": 18,
-    "high_urgency|wait": 10,
-    "normal_flow|probe_gently": 44,
-    "normal_flow|proceed": 24,
+    "high_conflict_bottleneck|probe_gently": 16,
+    "high_conflict_bottleneck|proceed": 10,
+    "high_conflict_bottleneck|wait": 4,
+    "high_urgency|assert": 29,
+    "high_urgency|probe_gently": 27,
+    "high_urgency|proceed": 38,
+    "high_urgency|wait": 14,
+    "high_urgency|yield": 2,
+    "normal_flow|probe_gently": 61,
+    "normal_flow|proceed": 18,
     "normal_flow|wait": 1,
-    "normal_flow|yield": 31
+    "normal_flow|yield": 20
   },
   "choice_context_rates": {
-    "ambiguous_early|probe_gently": 0.16382252559726962,
-    "high_conflict_bottleneck|assert": 0.034129692832764506,
-    "high_conflict_bottleneck|probe_gently": 0.04436860068259386,
-    "high_conflict_bottleneck|proceed": 0.051194539249146756,
-    "high_conflict_bottleneck|wait": 0.006825938566552901,
-    "high_conflict_bottleneck|yield": 0.013651877133105802,
-    "high_urgency|assert": 0.16382252559726962,
-    "high_urgency|probe_gently": 0.08532423208191127,
-    "high_urgency|proceed": 0.06143344709897611,
-    "high_urgency|wait": 0.034129692832764506,
-    "normal_flow|probe_gently": 0.15017064846416384,
-    "normal_flow|proceed": 0.08191126279863481,
-    "normal_flow|wait": 0.0034129692832764505,
-    "normal_flow|yield": 0.10580204778156997
+    "ambiguous_early|probe_gently": 0.1610738255033557,
+    "high_conflict_bottleneck|assert": 0.03355704697986577,
+    "high_conflict_bottleneck|probe_gently": 0.053691275167785234,
+    "high_conflict_bottleneck|proceed": 0.03355704697986577,
+    "high_conflict_bottleneck|wait": 0.013422818791946308,
+    "high_urgency|assert": 0.09731543624161074,
+    "high_urgency|probe_gently": 0.09060402684563758,
+    "high_urgency|proceed": 0.12751677852348994,
+    "high_urgency|wait": 0.04697986577181208,
+    "high_urgency|yield": 0.006711409395973154,
+    "normal_flow|probe_gently": 0.20469798657718122,
+    "normal_flow|proceed": 0.06040268456375839,
+    "normal_flow|wait": 0.003355704697986577,
+    "normal_flow|yield": 0.06711409395973154
   },
   "context_terminal_outcome_rates": {
     "ambiguous_early|probe_gently": {
       "collision": 0.16666666666666666,
-      "deadlock": 0.08333333333333333,
-      "success": 0.5833333333333334,
+      "deadlock": 0.16666666666666666,
+      "success": 0.5,
       "timeout": 0.16666666666666666
     },
     "high_conflict_bottleneck|assert": {
@@ -45,63 +45,63 @@
       "timeout": 0.0
     },
     "high_conflict_bottleneck|probe_gently": {
-      "collision": 0.07692307692307693,
+      "collision": 0.1875,
       "deadlock": 0.0,
-      "success": 0.46153846153846156,
-      "timeout": 0.46153846153846156
+      "success": 0.5,
+      "timeout": 0.3125
     },
     "high_conflict_bottleneck|proceed": {
-      "collision": 0.13333333333333333,
-      "deadlock": 0.0,
-      "success": 0.8666666666666667,
-      "timeout": 0.0
-    },
-    "high_conflict_bottleneck|wait": {
       "collision": 0.0,
       "deadlock": 0.0,
       "success": 1.0,
       "timeout": 0.0
     },
-    "high_conflict_bottleneck|yield": {
-      "collision": 0.0,
-      "deadlock": 0.0,
-      "success": 0.0,
-      "timeout": 1.0
+    "high_conflict_bottleneck|wait": {
+      "collision": 0.25,
+      "deadlock": 0.5,
+      "success": 0.25,
+      "timeout": 0.0
     },
     "high_urgency|assert": {
-      "collision": 0.10416666666666667,
-      "deadlock": 0.375,
-      "success": 0.5208333333333334,
+      "collision": 0.06896551724137931,
+      "deadlock": 0.6206896551724138,
+      "success": 0.3103448275862069,
       "timeout": 0.0
     },
     "high_urgency|probe_gently": {
-      "collision": 0.04,
+      "collision": 0.037037037037037035,
       "deadlock": 0.0,
-      "success": 0.96,
+      "success": 0.9629629629629629,
       "timeout": 0.0
     },
     "high_urgency|proceed": {
-      "collision": 0.0,
-      "deadlock": 0.05555555555555555,
-      "success": 0.9444444444444444,
+      "collision": 0.02631578947368421,
+      "deadlock": 0.10526315789473684,
+      "success": 0.868421052631579,
       "timeout": 0.0
     },
     "high_urgency|wait": {
-      "collision": 0.3,
-      "deadlock": 0.3,
-      "success": 0.4,
+      "collision": 0.14285714285714285,
+      "deadlock": 0.6428571428571429,
+      "success": 0.21428571428571427,
+      "timeout": 0.0
+    },
+    "high_urgency|yield": {
+      "collision": 0.0,
+      "deadlock": 0.0,
+      "success": 1.0,
       "timeout": 0.0
     },
     "normal_flow|probe_gently": {
-      "collision": 0.022727272727272728,
+      "collision": 0.03278688524590164,
       "deadlock": 0.0,
-      "success": 0.2727272727272727,
-      "timeout": 0.7045454545454546
+      "success": 0.19672131147540983,
+      "timeout": 0.7704918032786885
     },
     "normal_flow|proceed": {
-      "collision": 0.041666666666666664,
+      "collision": 0.1111111111111111,
       "deadlock": 0.0,
-      "success": 0.9583333333333334,
+      "success": 0.8888888888888888,
       "timeout": 0.0
     },
     "normal_flow|wait": {
@@ -118,86 +118,86 @@
     }
   },
   "experiment_mask_firing_counts": {
-    "assert_context_mask": 12,
-    "delayed_trust_cooperative_resolution_mask": 16,
+    "assert_context_mask": 14,
+    "delayed_trust_cooperative_resolution_mask": 12,
     "early_caution_mask": 21,
-    "false_friend_guard_mask": 19,
-    "late_commit_mask": 116,
-    "late_yield_mask": 93,
-    "opportunism_assert_mask": 10,
-    "opportunism_yield_mask": 11,
-    "recovery_assert_mask": 10,
-    "recovery_yield_mask": 9,
-    "safety_first_mask": 66,
-    "soft_reengage_mask": 19,
+    "false_friend_guard_mask": 20,
+    "late_commit_mask": 102,
+    "late_yield_mask": 95,
+    "opportunism_assert_mask": 11,
+    "opportunism_yield_mask": 13,
+    "recovery_assert_mask": 11,
+    "recovery_yield_mask": 7,
+    "safety_first_mask": 76,
+    "soft_reengage_mask": 20,
     "urgency_override_mask": 14,
     "urgent_probe_proceed_bridge_mask": 12,
-    "yield_context_mask": 58
+    "yield_context_mask": 65
   },
   "experiment_mask_firing_rates": {
-    "assert_context_mask": 0.040955631399317405,
-    "delayed_trust_cooperative_resolution_mask": 0.05460750853242321,
-    "early_caution_mask": 0.07167235494880546,
-    "false_friend_guard_mask": 0.06484641638225255,
-    "late_commit_mask": 0.39590443686006827,
-    "late_yield_mask": 0.3174061433447099,
-    "opportunism_assert_mask": 0.034129692832764506,
-    "opportunism_yield_mask": 0.03754266211604096,
-    "recovery_assert_mask": 0.034129692832764506,
-    "recovery_yield_mask": 0.030716723549488054,
-    "safety_first_mask": 0.22525597269624573,
-    "soft_reengage_mask": 0.06484641638225255,
-    "urgency_override_mask": 0.04778156996587031,
-    "urgent_probe_proceed_bridge_mask": 0.040955631399317405,
-    "yield_context_mask": 0.19795221843003413
+    "assert_context_mask": 0.04697986577181208,
+    "delayed_trust_cooperative_resolution_mask": 0.040268456375838924,
+    "early_caution_mask": 0.07046979865771812,
+    "false_friend_guard_mask": 0.06711409395973154,
+    "late_commit_mask": 0.3422818791946309,
+    "late_yield_mask": 0.3187919463087248,
+    "opportunism_assert_mask": 0.03691275167785235,
+    "opportunism_yield_mask": 0.0436241610738255,
+    "recovery_assert_mask": 0.03691275167785235,
+    "recovery_yield_mask": 0.02348993288590604,
+    "safety_first_mask": 0.2550335570469799,
+    "soft_reengage_mask": 0.06711409395973154,
+    "urgency_override_mask": 0.04697986577181208,
+    "urgent_probe_proceed_bridge_mask": 0.040268456375838924,
+    "yield_context_mask": 0.2181208053691275
   },
-  "mean_context_sensitive_action_regret": 0.1681532106309583,
+  "mean_context_sensitive_action_regret": 0.18785567786186982,
   "motivation_profile": {
-    "high_conflict_assertive_rate": 0.5681818181818182,
-    "high_conflict_cautious_rate": 0.4318181818181818
+    "high_conflict_assertive_rate": 0.5,
+    "high_conflict_cautious_rate": 0.5
   },
   "partner_style_rates": {
     "partner_type_0": {
       "assert_rate": 0.0,
-      "probe_gently_rate": 0.5869565217391305,
-      "proceed_rate": 0.391304347826087,
-      "wait_rate": 0.021739130434782608,
-      "yield_rate": 0.0
+      "probe_gently_rate": 0.775,
+      "proceed_rate": 0.2,
+      "wait_rate": 0.0,
+      "yield_rate": 0.025
     },
     "partner_type_1": {
-      "assert_rate": 0.11904761904761904,
-      "probe_gently_rate": 0.5357142857142857,
-      "proceed_rate": 0.08333333333333333,
-      "wait_rate": 0.05952380952380952,
-      "yield_rate": 0.20238095238095238
+      "assert_rate": 0.11235955056179775,
+      "probe_gently_rate": 0.6067415730337079,
+      "proceed_rate": 0.0449438202247191,
+      "wait_rate": 0.11235955056179775,
+      "yield_rate": 0.12359550561797752
     },
     "partner_type_2": {
-      "assert_rate": 0.4266666666666667,
+      "assert_rate": 0.18666666666666668,
       "probe_gently_rate": 0.14666666666666667,
-      "proceed_rate": 0.4,
+      "proceed_rate": 0.64,
       "wait_rate": 0.02666666666666667,
       "yield_rate": 0.0
     },
     "partner_type_3": {
-      "assert_rate": 0.3137254901960784,
-      "probe_gently_rate": 0.39215686274509803,
-      "proceed_rate": 0.0392156862745098,
-      "wait_rate": 0.0784313725490196,
-      "yield_rate": 0.17647058823529413
+      "assert_rate": 0.2631578947368421,
+      "probe_gently_rate": 0.43859649122807015,
+      "proceed_rate": 0.10526315789473684,
+      "wait_rate": 0.10526315789473684,
+      "yield_rate": 0.08771929824561403
     },
     "partner_type_4": {
       "assert_rate": 0.0,
-      "probe_gently_rate": 0.7297297297297297,
+      "probe_gently_rate": 0.8378378378378378,
       "proceed_rate": 0.0,
       "wait_rate": 0.02702702702702703,
-      "yield_rate": 0.24324324324324326
+      "yield_rate": 0.13513513513513514
     }
   },
   "scenario_summaries": [
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.99986732006073,
+      "belief_confidence_peak": 0.9999380111694336,
       "belief_shift_moment": null,
       "belief_turning_point": null,
       "context_sensitive_action_regret": 0.13999999999999999,
@@ -218,10 +218,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6774154305458069,
-      "belief_shift_moment": 1,
-      "belief_turning_point": 1,
-      "context_sensitive_action_regret": 0.20249999999999999,
+      "belief_confidence_peak": 0.6611353754997253,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.29250000000000004,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -239,7 +239,7 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.9977865219116211,
+      "belief_confidence_peak": 0.9999679327011108,
       "belief_shift_moment": 5,
       "belief_turning_point": 5,
       "context_sensitive_action_regret": 0.028947368421052635,
@@ -260,10 +260,10 @@
     {
       "action_switch_moment": 4,
       "action_switch_point": 4,
-      "belief_confidence_peak": 0.9998008608818054,
+      "belief_confidence_peak": 0.9989022016525269,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.34166666666666673,
+      "context_sensitive_action_regret": 0.2833333333333334,
       "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=low",
       "context_tag_set": {
         "margin": "narrow",
@@ -281,10 +281,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6631719470024109,
-      "belief_shift_moment": 1,
-      "belief_turning_point": 1,
-      "context_sensitive_action_regret": 0.20249999999999999,
+      "belief_confidence_peak": 0.6488481163978577,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.29250000000000004,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -302,10 +302,10 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.8876627087593079,
+      "belief_confidence_peak": 0.9984612464904785,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.325,
+      "context_sensitive_action_regret": 0.41363636363636364,
       "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=low",
       "context_tag_set": {
         "margin": "moderate",
@@ -313,41 +313,41 @@
         "timeout_pressure": "low",
         "urgency": "high"
       },
-      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
-      "one_line_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
-      "outcome": "collision",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
       "partner_style": "opportunistic",
       "scenario_family": "false_friend",
       "switch_delay_after_evidence": 1
     },
     {
-      "action_switch_moment": 2,
-      "action_switch_point": 2,
-      "belief_confidence_peak": 0.9999876022338867,
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9999281167984009,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.0,
-      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=high",
+      "context_sensitive_action_regret": 0.13999999999999999,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=low",
       "context_tag_set": {
         "margin": "moderate",
         "norm": "courteous",
-        "timeout_pressure": "high",
+        "timeout_pressure": "low",
         "urgency": "low"
       },
-      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
-      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
-      "outcome": "success",
+      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "one_line_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "outcome": "collision",
       "partner_style": "cooperative",
       "scenario_family": "false_friend",
-      "switch_delay_after_evidence": 0
+      "switch_delay_after_evidence": 1
     },
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.5374979972839355,
+      "belief_confidence_peak": 0.5697710514068604,
       "belief_shift_moment": 3,
       "belief_turning_point": 3,
-      "context_sensitive_action_regret": 0.39375,
+      "context_sensitive_action_regret": 0.37894736842105264,
       "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -365,7 +365,7 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.9979478716850281,
+      "belief_confidence_peak": 0.9999736547470093,
       "belief_shift_moment": 5,
       "belief_turning_point": 5,
       "context_sensitive_action_regret": 0.028947368421052635,
@@ -386,10 +386,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6706511378288269,
+      "belief_confidence_peak": 0.6718360185623169,
       "belief_shift_moment": 3,
       "belief_turning_point": 3,
-      "context_sensitive_action_regret": 0.3970588235294118,
+      "context_sensitive_action_regret": 0.4026315789473685,
       "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -407,7 +407,7 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.9999866485595703,
+      "belief_confidence_peak": 0.9999986886978149,
       "belief_shift_moment": 3,
       "belief_turning_point": 3,
       "context_sensitive_action_regret": 0.018421052631578946,
@@ -428,10 +428,10 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.8166425824165344,
+      "belief_confidence_peak": 0.7950718998908997,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.09166666666666667,
+      "context_sensitive_action_regret": 0.15714285714285717,
       "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=low",
       "context_tag_set": {
         "margin": "moderate",
@@ -449,10 +449,10 @@
     {
       "action_switch_moment": 4,
       "action_switch_point": 4,
-      "belief_confidence_peak": 0.9998451471328735,
+      "belief_confidence_peak": 0.9999552965164185,
       "belief_shift_moment": 2,
       "belief_turning_point": 2,
-      "context_sensitive_action_regret": 0.30000000000000004,
+      "context_sensitive_action_regret": 0.13,
       "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
       "context_tag_set": {
         "margin": "moderate",
@@ -460,9 +460,9 @@
         "timeout_pressure": "high",
         "urgency": "high"
       },
-      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
-      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
-      "outcome": "success",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "one_line_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
       "partner_style": "assertive",
       "scenario_family": "late_disambiguation",
       "switch_delay_after_evidence": 0
@@ -470,7 +470,7 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.9998432397842407,
+      "belief_confidence_peak": 0.9993239641189575,
       "belief_shift_moment": null,
       "belief_turning_point": null,
       "context_sensitive_action_regret": 0.31764705882352945,
@@ -491,7 +491,7 @@
     {
       "action_switch_moment": 5,
       "action_switch_point": 5,
-      "belief_confidence_peak": 0.9999877214431763,
+      "belief_confidence_peak": 0.9999963045120239,
       "belief_shift_moment": null,
       "belief_turning_point": null,
       "context_sensitive_action_regret": 0.031818181818181815,
@@ -512,7 +512,7 @@
     {
       "action_switch_moment": 4,
       "action_switch_point": 4,
-      "belief_confidence_peak": 0.9999995231628418,
+      "belief_confidence_peak": 0.9999977350234985,
       "belief_shift_moment": 2,
       "belief_turning_point": 2,
       "context_sensitive_action_regret": 0.0,
@@ -533,9 +533,9 @@
     {
       "action_switch_moment": 4,
       "action_switch_point": 4,
-      "belief_confidence_peak": 0.9851588606834412,
-      "belief_shift_moment": 4,
-      "belief_turning_point": 4,
+      "belief_confidence_peak": 0.9949789643287659,
+      "belief_shift_moment": 3,
+      "belief_turning_point": 3,
       "context_sensitive_action_regret": 0.07333333333333333,
       "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
       "context_tag_set": {
@@ -554,10 +554,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.673487663269043,
+      "belief_confidence_peak": 0.654140055179596,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.225,
+      "context_sensitive_action_regret": 0.29250000000000004,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -575,7 +575,7 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.9876812696456909,
+      "belief_confidence_peak": 0.9278574585914612,
       "belief_shift_moment": null,
       "belief_turning_point": null,
       "context_sensitive_action_regret": 0.04230769230769231,
@@ -596,10 +596,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6576825380325317,
-      "belief_shift_moment": 1,
-      "belief_turning_point": 1,
-      "context_sensitive_action_regret": 0.20249999999999999,
+      "belief_confidence_peak": 0.6483673453330994,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.29250000000000004,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",

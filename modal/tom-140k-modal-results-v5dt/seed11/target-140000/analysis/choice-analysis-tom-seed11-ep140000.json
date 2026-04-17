@@ -1,54 +1,56 @@
 {
   "choice_context_counts": {
     "ambiguous_early|probe_gently": 48,
-    "high_conflict_bottleneck|assert": 9,
-    "high_conflict_bottleneck|probe_gently": 16,
-    "high_conflict_bottleneck|proceed": 14,
+    "high_conflict_bottleneck|assert": 8,
+    "high_conflict_bottleneck|probe_gently": 13,
+    "high_conflict_bottleneck|proceed": 17,
     "high_conflict_bottleneck|wait": 4,
-    "high_conflict_bottleneck|yield": 3,
-    "high_urgency|assert": 46,
-    "high_urgency|probe_gently": 25,
-    "high_urgency|proceed": 20,
-    "high_urgency|wait": 11,
-    "normal_flow|probe_gently": 49,
-    "normal_flow|proceed": 24,
+    "high_conflict_bottleneck|yield": 5,
+    "high_urgency|assert": 49,
+    "high_urgency|probe_gently": 27,
+    "high_urgency|proceed": 18,
+    "high_urgency|wait": 12,
+    "high_urgency|yield": 2,
+    "normal_flow|probe_gently": 33,
+    "normal_flow|proceed": 32,
     "normal_flow|wait": 1,
-    "normal_flow|yield": 25
+    "normal_flow|yield": 41
   },
   "choice_context_rates": {
-    "ambiguous_early|probe_gently": 0.16271186440677965,
-    "high_conflict_bottleneck|assert": 0.030508474576271188,
-    "high_conflict_bottleneck|probe_gently": 0.05423728813559322,
-    "high_conflict_bottleneck|proceed": 0.04745762711864407,
-    "high_conflict_bottleneck|wait": 0.013559322033898305,
-    "high_conflict_bottleneck|yield": 0.010169491525423728,
-    "high_urgency|assert": 0.15593220338983052,
-    "high_urgency|probe_gently": 0.0847457627118644,
-    "high_urgency|proceed": 0.06779661016949153,
-    "high_urgency|wait": 0.03728813559322034,
-    "normal_flow|probe_gently": 0.16610169491525423,
-    "normal_flow|proceed": 0.08135593220338982,
-    "normal_flow|wait": 0.003389830508474576,
-    "normal_flow|yield": 0.0847457627118644
+    "ambiguous_early|probe_gently": 0.15483870967741936,
+    "high_conflict_bottleneck|assert": 0.025806451612903226,
+    "high_conflict_bottleneck|probe_gently": 0.041935483870967745,
+    "high_conflict_bottleneck|proceed": 0.054838709677419356,
+    "high_conflict_bottleneck|wait": 0.012903225806451613,
+    "high_conflict_bottleneck|yield": 0.016129032258064516,
+    "high_urgency|assert": 0.15806451612903225,
+    "high_urgency|probe_gently": 0.08709677419354839,
+    "high_urgency|proceed": 0.05806451612903226,
+    "high_urgency|wait": 0.03870967741935484,
+    "high_urgency|yield": 0.0064516129032258064,
+    "normal_flow|probe_gently": 0.1064516129032258,
+    "normal_flow|proceed": 0.1032258064516129,
+    "normal_flow|wait": 0.0032258064516129032,
+    "normal_flow|yield": 0.13225806451612904
   },
   "context_terminal_outcome_rates": {
     "ambiguous_early|probe_gently": {
-      "collision": 0.125,
+      "collision": 0.08333333333333333,
       "deadlock": 0.16666666666666666,
-      "success": 0.5416666666666666,
+      "success": 0.5833333333333334,
       "timeout": 0.16666666666666666
     },
     "high_conflict_bottleneck|assert": {
-      "collision": 0.1111111111111111,
-      "deadlock": 0.1111111111111111,
-      "success": 0.7777777777777778,
+      "collision": 0.125,
+      "deadlock": 0.0,
+      "success": 0.875,
       "timeout": 0.0
     },
     "high_conflict_bottleneck|probe_gently": {
-      "collision": 0.125,
+      "collision": 0.07692307692307693,
       "deadlock": 0.0,
-      "success": 0.375,
-      "timeout": 0.5
+      "success": 0.6153846153846154,
+      "timeout": 0.3076923076923077
     },
     "high_conflict_bottleneck|proceed": {
       "collision": 0.0,
@@ -69,39 +71,45 @@
       "timeout": 1.0
     },
     "high_urgency|assert": {
-      "collision": 0.06521739130434782,
-      "deadlock": 0.391304347826087,
-      "success": 0.5434782608695652,
+      "collision": 0.061224489795918366,
+      "deadlock": 0.3877551020408163,
+      "success": 0.5510204081632653,
       "timeout": 0.0
     },
     "high_urgency|probe_gently": {
-      "collision": 0.04,
+      "collision": 0.037037037037037035,
       "deadlock": 0.0,
-      "success": 0.96,
+      "success": 0.9629629629629629,
       "timeout": 0.0
     },
     "high_urgency|proceed": {
       "collision": 0.0,
-      "deadlock": 0.15,
-      "success": 0.85,
+      "deadlock": 0.16666666666666666,
+      "success": 0.8333333333333334,
       "timeout": 0.0
     },
     "high_urgency|wait": {
-      "collision": 0.18181818181818182,
-      "deadlock": 0.5454545454545454,
-      "success": 0.2727272727272727,
+      "collision": 0.16666666666666666,
+      "deadlock": 0.5833333333333334,
+      "success": 0.25,
+      "timeout": 0.0
+    },
+    "high_urgency|yield": {
+      "collision": 0.0,
+      "deadlock": 0.0,
+      "success": 1.0,
       "timeout": 0.0
     },
     "normal_flow|probe_gently": {
-      "collision": 0.02040816326530612,
+      "collision": 0.0,
       "deadlock": 0.0,
-      "success": 0.24489795918367346,
-      "timeout": 0.7346938775510204
+      "success": 0.3333333333333333,
+      "timeout": 0.6666666666666666
     },
     "normal_flow|proceed": {
-      "collision": 0.041666666666666664,
+      "collision": 0.0,
       "deadlock": 0.0,
-      "success": 0.9583333333333334,
+      "success": 1.0,
       "timeout": 0.0
     },
     "normal_flow|wait": {
@@ -118,110 +126,110 @@
     }
   },
   "experiment_mask_firing_counts": {
-    "assert_context_mask": 22,
-    "delayed_trust_cooperative_resolution_mask": 16,
+    "assert_context_mask": 15,
+    "delayed_trust_cooperative_resolution_mask": 19,
     "early_caution_mask": 21,
-    "false_friend_guard_mask": 18,
-    "late_commit_mask": 99,
-    "late_yield_mask": 109,
-    "opportunism_assert_mask": 9,
-    "opportunism_yield_mask": 14,
-    "recovery_assert_mask": 9,
-    "recovery_yield_mask": 7,
-    "safety_first_mask": 77,
-    "soft_reengage_mask": 19,
-    "urgency_override_mask": 14,
+    "false_friend_guard_mask": 19,
+    "late_commit_mask": 128,
+    "late_yield_mask": 92,
+    "opportunism_assert_mask": 10,
+    "opportunism_yield_mask": 13,
+    "recovery_assert_mask": 10,
+    "recovery_yield_mask": 9,
+    "safety_first_mask": 49,
+    "soft_reengage_mask": 18,
+    "urgency_override_mask": 15,
     "urgent_probe_proceed_bridge_mask": 10,
-    "yield_context_mask": 74
+    "yield_context_mask": 37
   },
   "experiment_mask_firing_rates": {
-    "assert_context_mask": 0.07457627118644068,
-    "delayed_trust_cooperative_resolution_mask": 0.05423728813559322,
-    "early_caution_mask": 0.0711864406779661,
-    "false_friend_guard_mask": 0.061016949152542375,
-    "late_commit_mask": 0.33559322033898303,
-    "late_yield_mask": 0.3694915254237288,
-    "opportunism_assert_mask": 0.030508474576271188,
-    "opportunism_yield_mask": 0.04745762711864407,
-    "recovery_assert_mask": 0.030508474576271188,
-    "recovery_yield_mask": 0.023728813559322035,
-    "safety_first_mask": 0.26101694915254237,
-    "soft_reengage_mask": 0.06440677966101695,
-    "urgency_override_mask": 0.04745762711864407,
-    "urgent_probe_proceed_bridge_mask": 0.03389830508474576,
-    "yield_context_mask": 0.25084745762711863
+    "assert_context_mask": 0.04838709677419355,
+    "delayed_trust_cooperative_resolution_mask": 0.06129032258064516,
+    "early_caution_mask": 0.06774193548387097,
+    "false_friend_guard_mask": 0.06129032258064516,
+    "late_commit_mask": 0.4129032258064516,
+    "late_yield_mask": 0.2967741935483871,
+    "opportunism_assert_mask": 0.03225806451612903,
+    "opportunism_yield_mask": 0.041935483870967745,
+    "recovery_assert_mask": 0.03225806451612903,
+    "recovery_yield_mask": 0.02903225806451613,
+    "safety_first_mask": 0.15806451612903225,
+    "soft_reengage_mask": 0.05806451612903226,
+    "urgency_override_mask": 0.04838709677419355,
+    "urgent_probe_proceed_bridge_mask": 0.03225806451612903,
+    "yield_context_mask": 0.11935483870967742
   },
-  "mean_context_sensitive_action_regret": 0.1669850638267821,
+  "mean_context_sensitive_action_regret": 0.14063334317900883,
   "motivation_profile": {
-    "high_conflict_assertive_rate": 0.5,
-    "high_conflict_cautious_rate": 0.5
+    "high_conflict_assertive_rate": 0.5319148936170213,
+    "high_conflict_cautious_rate": 0.46808510638297873
   },
   "partner_style_rates": {
     "partner_type_0": {
       "assert_rate": 0.0,
-      "probe_gently_rate": 0.6,
-      "proceed_rate": 0.4,
+      "probe_gently_rate": 0.48214285714285715,
+      "proceed_rate": 0.5,
       "wait_rate": 0.0,
-      "yield_rate": 0.0
+      "yield_rate": 0.017857142857142856
     },
     "partner_type_1": {
-      "assert_rate": 0.12195121951219512,
-      "probe_gently_rate": 0.5853658536585366,
-      "proceed_rate": 0.024390243902439025,
-      "wait_rate": 0.0975609756097561,
-      "yield_rate": 0.17073170731707318
+      "assert_rate": 0.10588235294117647,
+      "probe_gently_rate": 0.4823529411764706,
+      "proceed_rate": 0.03529411764705882,
+      "wait_rate": 0.09411764705882353,
+      "yield_rate": 0.2823529411764706
     },
     "partner_type_2": {
-      "assert_rate": 0.4,
-      "probe_gently_rate": 0.14666666666666667,
-      "proceed_rate": 0.4266666666666667,
+      "assert_rate": 0.4266666666666667,
+      "probe_gently_rate": 0.13333333333333333,
+      "proceed_rate": 0.41333333333333333,
       "wait_rate": 0.02666666666666667,
       "yield_rate": 0.0
     },
     "partner_type_3": {
-      "assert_rate": 0.26785714285714285,
-      "probe_gently_rate": 0.4107142857142857,
-      "proceed_rate": 0.10714285714285714,
-      "wait_rate": 0.08928571428571429,
-      "yield_rate": 0.125
+      "assert_rate": 0.2807017543859649,
+      "probe_gently_rate": 0.3333333333333333,
+      "proceed_rate": 0.08771929824561403,
+      "wait_rate": 0.10526315789473684,
+      "yield_rate": 0.19298245614035087
     },
     "partner_type_4": {
       "assert_rate": 0.0,
-      "probe_gently_rate": 0.7837837837837838,
+      "probe_gently_rate": 0.6486486486486487,
       "proceed_rate": 0.0,
       "wait_rate": 0.02702702702702703,
-      "yield_rate": 0.1891891891891892
+      "yield_rate": 0.32432432432432434
     }
   },
   "scenario_summaries": [
     {
-      "action_switch_moment": 3,
-      "action_switch_point": 3,
-      "belief_confidence_peak": 0.9992876648902893,
+      "action_switch_moment": 2,
+      "action_switch_point": 2,
+      "belief_confidence_peak": 0.9999996423721313,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.13999999999999999,
-      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=low",
+      "context_sensitive_action_regret": 0.0,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=high",
       "context_tag_set": {
         "margin": "moderate",
         "norm": "courteous",
-        "timeout_pressure": "low",
+        "timeout_pressure": "high",
         "urgency": "low"
       },
-      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
-      "one_line_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
-      "outcome": "collision",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "one_line_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
       "partner_style": "cooperative",
       "scenario_family": "ambiguous_commit",
-      "switch_delay_after_evidence": 1
+      "switch_delay_after_evidence": 0
     },
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6544371247291565,
-      "belief_shift_moment": 1,
-      "belief_turning_point": 1,
-      "context_sensitive_action_regret": 0.2475,
+      "belief_confidence_peak": 0.7337415814399719,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.1575,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -239,7 +247,7 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.997783362865448,
+      "belief_confidence_peak": 0.9980528354644775,
       "belief_shift_moment": 5,
       "belief_turning_point": 5,
       "context_sensitive_action_regret": 0.028947368421052635,
@@ -260,7 +268,7 @@
     {
       "action_switch_moment": 4,
       "action_switch_point": 4,
-      "belief_confidence_peak": 0.9971031546592712,
+      "belief_confidence_peak": 0.995215892791748,
       "belief_shift_moment": null,
       "belief_turning_point": null,
       "context_sensitive_action_regret": 0.2833333333333334,
@@ -281,10 +289,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6340577602386475,
+      "belief_confidence_peak": 0.7240453958511353,
       "belief_shift_moment": 2,
       "belief_turning_point": 2,
-      "context_sensitive_action_regret": 0.2475,
+      "context_sensitive_action_regret": 0.135,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -302,7 +310,7 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.9966980218887329,
+      "belief_confidence_peak": 0.9906014204025269,
       "belief_shift_moment": null,
       "belief_turning_point": null,
       "context_sensitive_action_regret": 0.41363636363636364,
@@ -344,10 +352,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.624083399772644,
+      "belief_confidence_peak": 0.6323514580726624,
       "belief_shift_moment": 3,
       "belief_turning_point": 3,
-      "context_sensitive_action_regret": 0.39375,
+      "context_sensitive_action_regret": 0.37894736842105264,
       "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -365,9 +373,9 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.9983921647071838,
-      "belief_shift_moment": 5,
-      "belief_turning_point": 5,
+      "belief_confidence_peak": 0.9976447224617004,
+      "belief_shift_moment": 6,
+      "belief_turning_point": 6,
       "context_sensitive_action_regret": 0.028947368421052635,
       "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
       "context_tag_set": {
@@ -386,10 +394,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6362770199775696,
-      "belief_shift_moment": 4,
-      "belief_turning_point": 4,
-      "context_sensitive_action_regret": 0.39375000000000004,
+      "belief_confidence_peak": 0.5473334789276123,
+      "belief_shift_moment": 3,
+      "belief_turning_point": 3,
+      "context_sensitive_action_regret": 0.4026315789473685,
       "context_tag": "urgency=high|norm=throughput_biased|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -405,12 +413,12 @@
       "switch_delay_after_evidence": null
     },
     {
-      "action_switch_moment": 3,
-      "action_switch_point": 3,
-      "belief_confidence_peak": 0.9999971389770508,
+      "action_switch_moment": 2,
+      "action_switch_point": 2,
+      "belief_confidence_peak": 0.9999954700469971,
       "belief_shift_moment": 3,
       "belief_turning_point": 3,
-      "context_sensitive_action_regret": 0.018421052631578946,
+      "context_sensitive_action_regret": 0.0,
       "context_tag": "urgency=low|norm=courteous|margin=moderate|timeout_pressure=high",
       "context_tag_set": {
         "margin": "moderate",
@@ -423,12 +431,12 @@
       "outcome": "success",
       "partner_style": "hesitant",
       "scenario_family": "no_progress_switch",
-      "switch_delay_after_evidence": 1
+      "switch_delay_after_evidence": 0
     },
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.8345591425895691,
+      "belief_confidence_peak": 0.8447896242141724,
       "belief_shift_moment": 6,
       "belief_turning_point": 6,
       "context_sensitive_action_regret": 0.15714285714285717,
@@ -449,7 +457,7 @@
     {
       "action_switch_moment": 4,
       "action_switch_point": 4,
-      "belief_confidence_peak": 0.9997891783714294,
+      "belief_confidence_peak": 0.9999326467514038,
       "belief_shift_moment": 2,
       "belief_turning_point": 2,
       "context_sensitive_action_regret": 0.1,
@@ -470,7 +478,7 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.9998998641967773,
+      "belief_confidence_peak": 0.9997982382774353,
       "belief_shift_moment": null,
       "belief_turning_point": null,
       "context_sensitive_action_regret": 0.31764705882352945,
@@ -512,7 +520,7 @@
     {
       "action_switch_moment": 4,
       "action_switch_point": 4,
-      "belief_confidence_peak": 0.9999979734420776,
+      "belief_confidence_peak": 0.9999974966049194,
       "belief_shift_moment": 2,
       "belief_turning_point": 2,
       "context_sensitive_action_regret": 0.0,
@@ -533,7 +541,7 @@
     {
       "action_switch_moment": 3,
       "action_switch_point": 3,
-      "belief_confidence_peak": 0.9935184121131897,
+      "belief_confidence_peak": 0.9869340658187866,
       "belief_shift_moment": 4,
       "belief_turning_point": 4,
       "context_sensitive_action_regret": 0.04230769230769231,
@@ -554,10 +562,10 @@
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6462134122848511,
+      "belief_confidence_peak": 0.724568784236908,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.2475,
+      "context_sensitive_action_regret": 0.135,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",
@@ -573,12 +581,12 @@
       "switch_delay_after_evidence": null
     },
     {
-      "action_switch_moment": 2,
-      "action_switch_point": 2,
-      "belief_confidence_peak": 0.866717517375946,
+      "action_switch_moment": 3,
+      "action_switch_point": 3,
+      "belief_confidence_peak": 0.9931091070175171,
       "belief_shift_moment": null,
       "belief_turning_point": null,
-      "context_sensitive_action_regret": 0.0,
+      "context_sensitive_action_regret": 0.04230769230769231,
       "context_tag": "urgency=high|norm=throughput_biased|margin=moderate|timeout_pressure=high",
       "context_tag_set": {
         "margin": "moderate",
@@ -591,15 +599,15 @@
       "outcome": "deadlock",
       "partner_style": "opportunistic",
       "scenario_family": "assert_or_yield",
-      "switch_delay_after_evidence": 0
+      "switch_delay_after_evidence": 1
     },
     {
       "action_switch_moment": null,
       "action_switch_point": null,
-      "belief_confidence_peak": 0.6378505825996399,
-      "belief_shift_moment": 1,
-      "belief_turning_point": 1,
-      "context_sensitive_action_regret": 0.2475,
+      "belief_confidence_peak": 0.7244056463241577,
+      "belief_shift_moment": 2,
+      "belief_turning_point": 2,
+      "context_sensitive_action_regret": 0.1575,
       "context_tag": "urgency=low|norm=courteous|margin=narrow|timeout_pressure=high",
       "context_tag_set": {
         "margin": "narrow",

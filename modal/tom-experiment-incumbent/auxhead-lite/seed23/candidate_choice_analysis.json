@@ -1,0 +1,328 @@
+{
+  "choice_context_counts": {
+    "ambiguous_early|probe_gently": 48,
+    "high_conflict_bottleneck|assert": 2,
+    "high_conflict_bottleneck|proceed": 13,
+    "high_urgency|assert": 27,
+    "high_urgency|proceed": 36,
+    "high_urgency|yield": 30,
+    "normal_flow|proceed": 22,
+    "normal_flow|yield": 54
+  },
+  "choice_context_rates": {
+    "ambiguous_early|probe_gently": 0.20689655172413793,
+    "high_conflict_bottleneck|assert": 0.008620689655172414,
+    "high_conflict_bottleneck|proceed": 0.05603448275862069,
+    "high_urgency|assert": 0.11637931034482758,
+    "high_urgency|proceed": 0.15517241379310345,
+    "high_urgency|yield": 0.12931034482758622,
+    "normal_flow|proceed": 0.09482758620689655,
+    "normal_flow|yield": 0.23275862068965517
+  },
+  "context_terminal_outcome_rates": {
+    "ambiguous_early|probe_gently": {
+      "collision": 0.25,
+      "deadlock": 0.4583333333333333,
+      "success": 0.2916666666666667,
+      "timeout": 0.0
+    },
+    "high_conflict_bottleneck|assert": {
+      "collision": 0.5,
+      "deadlock": 0.0,
+      "success": 0.5,
+      "timeout": 0.0
+    },
+    "high_conflict_bottleneck|proceed": {
+      "collision": 0.07692307692307693,
+      "deadlock": 0.0,
+      "success": 0.9230769230769231,
+      "timeout": 0.0
+    },
+    "high_urgency|assert": {
+      "collision": 0.1111111111111111,
+      "deadlock": 0.1111111111111111,
+      "success": 0.7777777777777778,
+      "timeout": 0.0
+    },
+    "high_urgency|proceed": {
+      "collision": 0.05555555555555555,
+      "deadlock": 0.5555555555555556,
+      "success": 0.3888888888888889,
+      "timeout": 0.0
+    },
+    "high_urgency|yield": {
+      "collision": 0.0,
+      "deadlock": 1.0,
+      "success": 0.0,
+      "timeout": 0.0
+    },
+    "normal_flow|proceed": {
+      "collision": 0.13636363636363635,
+      "deadlock": 0.0,
+      "success": 0.8636363636363636,
+      "timeout": 0.0
+    },
+    "normal_flow|yield": {
+      "collision": 0.018518518518518517,
+      "deadlock": 0.9074074074074074,
+      "success": 0.07407407407407407,
+      "timeout": 0.0
+    }
+  },
+  "experiment_mask_firing_counts": {
+    "early_caution_mask": 21,
+    "late_commit_mask": 69,
+    "late_yield_mask": 87,
+    "yield_context_mask": 3
+  },
+  "experiment_mask_firing_rates": {
+    "early_caution_mask": 0.09051724137931035,
+    "late_commit_mask": 0.2974137931034483,
+    "late_yield_mask": 0.375,
+    "yield_context_mask": 0.01293103448275862
+  },
+  "motivation_profile": {
+    "high_conflict_assertive_rate": 1.0,
+    "high_conflict_cautious_rate": 0.0
+  },
+  "partner_style_rates": {
+    "partner_type_0": {
+      "assert_rate": 0.0,
+      "probe_gently_rate": 0.2127659574468085,
+      "proceed_rate": 0.48936170212765956,
+      "wait_rate": 0.0,
+      "yield_rate": 0.2978723404255319
+    },
+    "partner_type_1": {
+      "assert_rate": 0.037037037037037035,
+      "probe_gently_rate": 0.2222222222222222,
+      "proceed_rate": 0.18518518518518517,
+      "wait_rate": 0.0,
+      "yield_rate": 0.5555555555555556
+    },
+    "partner_type_2": {
+      "assert_rate": 0.40816326530612246,
+      "probe_gently_rate": 0.20408163265306123,
+      "proceed_rate": 0.3673469387755102,
+      "wait_rate": 0.0,
+      "yield_rate": 0.02040816326530612
+    },
+    "partner_type_3": {
+      "assert_rate": 0.12280701754385964,
+      "probe_gently_rate": 0.17543859649122806,
+      "proceed_rate": 0.3508771929824561,
+      "wait_rate": 0.0,
+      "yield_rate": 0.3508771929824561
+    },
+    "partner_type_4": {
+      "assert_rate": 0.0,
+      "probe_gently_rate": 0.24,
+      "proceed_rate": 0.0,
+      "wait_rate": 0.0,
+      "yield_rate": 0.76
+    }
+  },
+  "scenario_summaries": [
+    {
+      "action_switch_moment": 4,
+      "belief_confidence_peak": 0.3499807119369507,
+      "belief_shift_moment": 4,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "cooperative",
+      "scenario_family": "ambiguous_commit"
+    },
+    {
+      "action_switch_moment": null,
+      "belief_confidence_peak": 0.3654079735279083,
+      "belief_shift_moment": null,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "assertive",
+      "scenario_family": "ambiguous_commit"
+    },
+    {
+      "action_switch_moment": 2,
+      "belief_confidence_peak": 0.45707136392593384,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "hesitant",
+      "scenario_family": "ambiguous_commit"
+    },
+    {
+      "action_switch_moment": 4,
+      "belief_confidence_peak": 0.38123688101768494,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "opportunistic",
+      "scenario_family": "ambiguous_commit"
+    },
+    {
+      "action_switch_moment": null,
+      "belief_confidence_peak": 0.36410415172576904,
+      "belief_shift_moment": null,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "deceptive_switching",
+      "scenario_family": "false_friend"
+    },
+    {
+      "action_switch_moment": 2,
+      "belief_confidence_peak": 0.3510953485965729,
+      "belief_shift_moment": null,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "outcome": "collision",
+      "partner_style": "opportunistic",
+      "scenario_family": "false_friend"
+    },
+    {
+      "action_switch_moment": 3,
+      "belief_confidence_peak": 0.34780484437942505,
+      "belief_shift_moment": 4,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "cooperative",
+      "scenario_family": "false_friend"
+    },
+    {
+      "action_switch_moment": null,
+      "belief_confidence_peak": 0.38232505321502686,
+      "belief_shift_moment": 4,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "assertive",
+      "scenario_family": "false_friend"
+    },
+    {
+      "action_switch_moment": 2,
+      "belief_confidence_peak": 0.46061602234840393,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "hesitant",
+      "scenario_family": "no_progress_switch"
+    },
+    {
+      "action_switch_moment": null,
+      "belief_confidence_peak": 0.3826848268508911,
+      "belief_shift_moment": 4,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "cooperative",
+      "scenario_family": "no_progress_switch"
+    },
+    {
+      "action_switch_moment": 3,
+      "belief_confidence_peak": 0.30591192841529846,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate",
+      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "outcome": "collision",
+      "partner_style": "hesitant",
+      "scenario_family": "no_progress_switch"
+    },
+    {
+      "action_switch_moment": 2,
+      "belief_confidence_peak": 0.4502403438091278,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "opportunistic",
+      "scenario_family": "no_progress_switch"
+    },
+    {
+      "action_switch_moment": 4,
+      "belief_confidence_peak": 0.3377321660518646,
+      "belief_shift_moment": null,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "outcome": "collision",
+      "partner_style": "assertive",
+      "scenario_family": "late_disambiguation"
+    },
+    {
+      "action_switch_moment": null,
+      "belief_confidence_peak": 0.3573850095272064,
+      "belief_shift_moment": 12,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "deceptive_switching",
+      "scenario_family": "late_disambiguation"
+    },
+    {
+      "action_switch_moment": 5,
+      "belief_confidence_peak": 0.3437316119670868,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=low|norm=courteous|margin=moderate",
+      "human_interpretation": "The learner read the bottleneck well enough to resolve the negotiation cleanly.",
+      "outcome": "success",
+      "partner_style": "cooperative",
+      "scenario_family": "late_disambiguation"
+    },
+    {
+      "action_switch_moment": 4,
+      "belief_confidence_peak": 0.3596998155117035,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner committed too aggressively under ambiguity and forced a costly clash.",
+      "outcome": "collision",
+      "partner_style": "hesitant",
+      "scenario_family": "late_disambiguation"
+    },
+    {
+      "action_switch_moment": 2,
+      "belief_confidence_peak": 0.46185383200645447,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "assertive",
+      "scenario_family": "assert_or_yield"
+    },
+    {
+      "action_switch_moment": null,
+      "belief_confidence_peak": 0.36557716131210327,
+      "belief_shift_moment": null,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "assertive",
+      "scenario_family": "assert_or_yield"
+    },
+    {
+      "action_switch_moment": 2,
+      "belief_confidence_peak": 0.46345654129981995,
+      "belief_shift_moment": 5,
+      "context_tag": "urgency=high|norm=throughput_biased|margin=moderate",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "opportunistic",
+      "scenario_family": "assert_or_yield"
+    },
+    {
+      "action_switch_moment": null,
+      "belief_confidence_peak": 0.3659600615501404,
+      "belief_shift_moment": null,
+      "context_tag": "urgency=low|norm=courteous|margin=narrow",
+      "human_interpretation": "The learner saw the ambiguity but failed to convert it into a useful strategy switch.",
+      "outcome": "deadlock",
+      "partner_style": "opportunistic",
+      "scenario_family": "assert_or_yield"
+    }
+  ],
+  "scenarios_evaluated": 20
+}
