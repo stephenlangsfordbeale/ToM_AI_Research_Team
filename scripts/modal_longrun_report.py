@@ -11,8 +11,8 @@ from statistics import mean
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 INCUMBENT_ROOT = PROJECT_ROOT / "modal" / "tom-experiment-incumbent"
-ROOT_130 = PROJECT_ROOT / "modal" / "tom-130k-modal-results"
-ROOT_140 = PROJECT_ROOT / "modal" / "tom-140k-modal-results"
+ROOT_130 = PROJECT_ROOT / "archive" / "modal" / "tom-130k-modal-results"
+ROOT_140 = PROJECT_ROOT / "archive" / "modal" / "tom-140k-modal-results"
 REPORTS_DIR = ROOT_140 / "reports"
 
 METRICS = [

@@ -30,4 +30,15 @@ printf '  output_family: %s\n' "$TOM_V6_REMOTE_OUTPUT_FAMILY"
 printf '  app_name: %s\n' "$TOM_V6_MODAL_APP_NAME"
 printf '  volume_name: %s\n' "$TOM_V6_MODAL_VOLUME_NAME"
 
+# shellcheck source=scripts/modal_run_state.sh
+source "$script_dir/scripts/modal_run_state.sh"
+export TOM_V6_LAUNCHER="tom-run-v6-ab130"
+modal_run_state_record \
+  "tom-run-v6-ab130" "v6" \
+  "$TOM_V6_MODAL_VOLUME_NAME" \
+  "$TOM_V6_REMOTE_OUTPUT_FAMILY" \
+  "7,11,23" \
+  "$TOM_V6_MODAL_APP_NAME" \
+  "130000"
+
 exec modal run scripts/modal_v6_runner.py --target-total-episodes 130000 --seeds-csv 7,11,23 "$@"

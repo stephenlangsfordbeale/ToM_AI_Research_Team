@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=scripts/tom_paths.sh
+source "$script_dir/scripts/tom_paths.sh"
+
+usage() {
+  cat <<EOF
+Learning Mode — launch the autoresearch-macos-tomx agent dashboard (OMX loop).
+
+Usage:
+  $(basename "$0") [--no-open] [--port N]
+
+This opens the Autoresearch Lab dashboard with the ToMX Local Quality profile,
+which targets this benchmark repo for train.py-only agent experimentation.
+
+Orchestration root: $TOM_AUTORESEARCH_ROOT
+Benchmark root:     $TOM_REPO_ROOT
+
+In the dashboard:
+  1. Select profile: "ToMX Local Quality"
+  2. Use prompt composer or "Run Smoke Then Gate" / "Run 3-Seed Quick Gate"
+  3. Agent roles load from: $TOM_REPO_ROOT/.codex/agents/
+
+Examples:
+  $(basename "$0")
+  $(basename "$0") --port 8766 --no-open
+EOF
+}
+
+dashboard_port=8765
+open_browser=1
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --port)
+      dashboard_port="${2:-}"
+      shift 2
+      ;;
+    --no-open)
+      open_browser=0
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unexpected argument: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+dashboard="$TOM_AUTORESEARCH_ROOT/autoresearch-dashboard"
+if [[ ! -x "$dashboard" ]]; then
+  echo "Dashboard launcher not found: $dashboard" >&2
+  echo "Set TOM_AUTORESEARCH_ROOT to your autoresearch-macos-tomx checkout." >&2
+  exit 1
+fi
+
+echo "Learning Mode"
+echo "  orchestration: $TOM_AUTORESEARCH_ROOT"
+echo "  benchmark:     $TOM_REPO_ROOT"
+echo "  program:       $TOM_REPO_ROOT/program.md"
+echo
+echo "Starting Autoresearch Lab dashboard..."
+echo "In the browser, choose profile: ToMX Local Quality"
+echo
+
+export TOM_PROJECT_ROOT="$TOM_REPO_ROOT"
+cd "$TOM_AUTORESEARCH_ROOT"
+
+dashboard_args=(--port "$dashboard_port")
+if [[ "$open_browser" -eq 0 ]]; then
+  dashboard_args+=(--no-open)
+fi
+
+exec "$dashboard" "${dashboard_args[@]}"

@@ -7,6 +7,8 @@ __pycache__/
 
 # Virtual environment
 .venv/
+.venv-smoke/
+.venv.py314.bak*/
 
 # Generated experiment artifacts
 checkpoints/
@@ -17,3 +19,13 @@ logs/
 .omx/
 
 .omc/
+
+# Knowledge graph (regenerate with: graphify update .)
+graphify-out/
+
+# Local Azure storage backups (not part of tracked infra)
+azure/conservation/
+
+# Scratch
+tmp/
+tmp_smoke/

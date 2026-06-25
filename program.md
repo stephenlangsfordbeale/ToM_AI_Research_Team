@@ -40,3 +40,17 @@ Discard if:
 - gain is likely noise,
 - collisions/deadlocks materially worsen,
 - training becomes unstable.
+
+## Artifact Layout (agents)
+
+- Campaign registry: `docs/CAMPAIGN_INDEX.md`
+- Local gate summary (Results Mode default): `logs/omx_full_2_5seed_summary.md`
+- Synced Modal logs: `logs/modal/` only (not repo-root `modal/` bulk)
+- Modal warm-starts: `modal/tom-experiment-incumbent/auxhead-clear/`, `auxhead-lite/`
+- Archived Modal long-runs: `archive/modal/`
+- Benchmark incumbents: `incumbents/ToM_experiment_incumbent/`
+  - `auxhead-clear/` — canonical local gate snapshot
+  - `../ToM_experiment_incumbent_v6-omx-full2/` — v6 omx_full_2 promoted train snapshot
+  - `../ToM_experiment_incumbent_v6-baseline-f1zero/` — baseline F1zero continuation lane
+
+New runs: use separated dimensions — platform / family / gate / campaign / seed — not legacy flat `logs/` names.

@@ -17,9 +17,14 @@ Do not treat the similarly named path with spaces as the repo root. That path cu
 - execution scripts:
   - `scripts/`
 - local experiment artifacts:
-  - `logs/`
-- long-run Modal artifacts:
-  - `modal/`
+  - `logs/` (local runs; summaries at root or `logs/summaries/` going forward)
+  - `logs/modal/` (synced Modal run logs — **the** Modal folder under logs)
+- Modal warm-start snapshots:
+  - `modal/tom-experiment-incumbent/` (active: `auxhead-clear/`, `auxhead-lite/`)
+- archived Modal long-runs:
+  - `archive/modal/` (former repo-root `modal/` bulk, Jun 2026)
+- campaign registry:
+  - `docs/CAMPAIGN_INDEX.md`
 - notebooks and notebook helper code:
   - `notebooks/`
 - temporary scratch outputs:
@@ -31,19 +36,17 @@ Do not treat the similarly named path with spaces as the repo root. That path cu
 ## Canonical Meaning Of Key Folders
 
 - `logs/`
-  - local verification runs
-  - local candidate comparisons
-  - temporary scientific checks
-- `modal/tom-130k-modal-results`
-  - older long-run branch at 130k
-- `modal/tom-140k-modal-results`
-  - older 140k branch
-- `modal/tom-140k-modal-results-v2`
-  - current Variant 2 long-run branch
-- `modal/tom-experiment-incumbent`
-  - warm-start checkpoints and incumbent archive
-- `modal/reports`
-  - notebook-generated visual exports that are not tied to one single long-run folder
+  - local verification runs and gate summaries (legacy flat names; see campaign index)
+- `logs/modal/`
+  - synced Modal campaign logs for demo and recent work
+- `modal/tom-experiment-incumbent/`
+  - active Modal warm-starts (`auxhead-clear/`, `auxhead-lite/`)
+- `archive/modal/`
+  - archived long-run Modal result trees and superseded incumbent variants
+- `incumbents/`
+  - benchmark-side promotion snapshots (pairs with warm-starts above)
+- `docs/CAMPAIGN_INDEX.md`
+  - canonical map across legacy and new paths
 - `notebooks/`
   - all `.ipynb`
   - notebook helper modules such as `variant2_visuals.py`
@@ -55,13 +58,11 @@ Do not treat the similarly named path with spaces as the repo root. That path cu
 
 ## Current Frontier
 
-- active frontier: Variant 2 contextual right-of-way
-- strongest long-run branch so far:
-  - `modal/tom-140k-modal-results-v2`
-- best single checkpoint so far:
-  - `seed11 new140`
-- main unresolved family:
-  - `assert_or_yield`
+- active experiment family: `contextual_right_of_way_switch` (auxhead-clear)
+- canonical 5-seed gate evidence: `logs/omx_full_2_5seed_summary.md`
+- incumbent archive: `incumbents/ToM_experiment_incumbent/auxhead-clear/`
+- demo CLI: see `docs/DEMO.md` (Results / Test / Learning modes)
+- Modal long-run lane (secondary): `modal/tom-140k-modal-results-v2`, v6 continuation scripts
 
 ## Execution Ladder
 

@@ -16,7 +16,7 @@ except ImportError as exc:  # pragma: no cover - optional dependency path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 LOCAL_INCUMBENT_ROOT = (
-    PROJECT_ROOT / "modal" / "tom-experiment-incumbent" / "auxhead-lite-v2-local800"
+    PROJECT_ROOT / "archive" / "modal" / "tom-experiment-incumbent" / "auxhead-lite-v2-local800"
 )
 REMOTE_PROJECT_ROOT = Path("/root/project")
 REMOTE_INCUMBENT_ROOT = Path("/root/incumbent/auxhead-lite-v2-local800")

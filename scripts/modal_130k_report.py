@@ -10,7 +10,7 @@ from statistics import mean
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RESULTS_ROOT = PROJECT_ROOT / "modal" / "tom-130k-modal-results"
+RESULTS_ROOT = PROJECT_ROOT / "archive" / "modal" / "tom-130k-modal-results"
 INCUMBENT_ROOT = PROJECT_ROOT / "modal" / "tom-experiment-incumbent"
 REPORTS_DIR = RESULTS_ROOT / "reports"
 

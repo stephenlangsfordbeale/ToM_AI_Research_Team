@@ -22,5 +22,16 @@ printf '  mode: wait\n'
 printf '  app_name: %s\n' "$TOM_V5_MODAL_APP_NAME"
 printf '  volume_name: %s\n' "$TOM_V5_MODAL_VOLUME_NAME"
 
+# shellcheck source=scripts/modal_run_state.sh
+source "$script_dir/scripts/modal_run_state.sh"
+export TOM_V5_LAUNCHER="tom-run-v5"
+modal_run_state_record \
+  "tom-run-v5" "v5" \
+  "$TOM_V5_MODAL_VOLUME_NAME" \
+  "${TOM_V5_REMOTE_OUTPUT_FAMILY:-v5-delayedtrust-split-candidate}" \
+  "${TOM_V5_SEEDS_CSV:-7,11,23}" \
+  "$TOM_V5_MODAL_APP_NAME" \
+  "140000"
+
 exec modal run scripts/modal_v5_runner.py "$@"
 

@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=scripts/tom_paths.sh
+source "$script_dir/scripts/tom_paths.sh"
+# shellcheck source=scripts/modal_run_state.sh
+source "$script_dir/scripts/modal_run_state.sh"
+
+usage() {
+  cat <<EOF
+Usage:
+  $(basename "$0") [--volume NAME] [--output-family NAME] [--seeds-csv CSV] [--target-total-episodes N] [--tail-lines N]
+
+Resolves the currently running Modal runner when possible, otherwise the most
+recently launched tom-run-* lane, otherwise the v6 default.
+
+Examples:
+  $(basename "$0")
+  $(basename "$0") --tail-lines 20
+EOF
+}
+
+volume_override=""
+output_override=""
+seeds_override=""
+target_override=""
+forwarded=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --volume)
+      volume_override="${2:-}"
+      shift 2
+      ;;
+    --output-family)
+      output_override="${2:-}"
+      shift 2
+      ;;
+    --seeds-csv)
+      seeds_override="${2:-}"
+      shift 2
+      ;;
+    --target-total-episodes)
+      target_override="${2:-}"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      forwarded+=("$1")
+      shift
+      ;;
+  esac
+done
+
+source_tag="default"
+runner_version="v6"
+launcher="tom-run-v6"
+volume_name=""
+output_family=""
+seeds_csv=""
+target_total_episodes=""
+app_name=""
+updated_at_utc=""
+
+while IFS='=' read -r key value; do
+  case "$key" in
+    source) source_tag="$value" ;;
+    runner_version) runner_version="$value" ;;
+    launcher) launcher="$value" ;;
+    volume_name) volume_name="$value" ;;
+    output_family) output_family="$value" ;;
+    seeds_csv) seeds_csv="$value" ;;
+    target_total_episodes) target_total_episodes="$value" ;;
+    app_name) app_name="$value" ;;
+    updated_at_utc) updated_at_utc="$value" ;;
+  esac
+done < <(modal_run_state_resolve)
+
+volume_name="${volume_override:-${volume_name:-tom-v6-omx-full2-runs}}"
+output_family="${output_override:-${output_family:-v6-omx-full2-promo-candidate}}"
+seeds_csv="${seeds_override:-${seeds_csv:-7,11,23}}"
+target_total_episodes="${target_override:-${target_total_episodes:-140000}}"
+
+status_cmd="$script_dir/tom-v6-status"
+if [[ ! -x "$status_cmd" ]]; then
+  echo "Modal status helper not found: $status_cmd" >&2
+  exit 1
+fi
+
+echo "Modal run status"
+echo "  resolve_source: $source_tag"
+echo "  runner_version: $runner_version"
+echo "  launcher:       $launcher"
+if [[ -n "$updated_at_utc" ]]; then
+  echo "  last_launch:    $updated_at_utc"
+fi
+if [[ -n "$app_name" ]]; then
+  echo "  app_name:       $app_name"
+fi
+echo
+
+exec "$status_cmd" \
+  --volume "$volume_name" \
+  --output-family "$output_family" \
+  --seeds-csv "$seeds_csv" \
+  --target-total-episodes "$target_total_episodes" \
+  "${forwarded[@]}"

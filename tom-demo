@@ -1,0 +1,149 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=scripts/tom_paths.sh
+source "$script_dir/scripts/tom_paths.sh"
+
+usage() {
+  cat <<EOF
+Results Mode — show pre-computed promotion evidence (no training).
+
+Usage:
+  $(basename "$0") [--summary PATH] [--modal] [--modal-only] [--open-note]
+
+Defaults:
+  summary:       $TOM_DEMO_SUMMARY
+  incumbent:     $TOM_DEMO_INCUMBENT_NOTE
+  logs/modal:    $TOM_LOGS_MODAL_ROOT
+  warm-starts:   $TOM_MODAL_WARMSTART_ROOT
+  campaign map:  $TOM_CAMPAIGN_INDEX
+
+Examples:
+  $(basename "$0")
+  $(basename "$0") --modal
+  $(basename "$0") --modal-only
+EOF
+}
+
+summary_path="$TOM_DEMO_SUMMARY"
+incumbent_note="$TOM_DEMO_INCUMBENT_NOTE"
+open_note=0
+show_modal=0
+modal_only=0
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --summary)
+      summary_path="${2:-}"
+      shift 2
+      ;;
+    --modal)
+      show_modal=1
+      shift
+      ;;
+    --modal-only)
+      show_modal=1
+      modal_only=1
+      shift
+      ;;
+    --open-note)
+      open_note=1
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unexpected argument: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+show_local_results() {
+  echo "Results Mode — local gate"
+  echo "  summary:   $summary_path"
+  echo "  incumbent: $incumbent_note"
+  echo
+
+  if [[ ! -f "$summary_path" ]]; then
+    echo "Summary not found: $summary_path" >&2
+    return 1
+  fi
+
+  cat "$summary_path"
+
+  echo
+  echo "----- local artifact pointers -----"
+  for seed in 7 11 17 23 29; do
+    root="$TOM_REPO_ROOT/logs/omx_full_2_seed${seed}"
+    selection="$root/selection/selection.json"
+    if [[ -f "$selection" ]]; then
+      echo "seed${seed}: $selection"
+    fi
+  done
+
+  if [[ -f "$incumbent_note" ]]; then
+    echo
+    echo "----- incumbent note -----"
+    cat "$incumbent_note"
+  fi
+}
+
+show_modal_results() {
+  echo "Results Mode — Modal lanes"
+  echo "  logs/modal:  $TOM_LOGS_MODAL_ROOT"
+  echo "  warm-starts: $TOM_MODAL_WARMSTART_ROOT"
+  echo "  archive:     $TOM_MODAL_ARCHIVE_ROOT"
+  echo "  registry:    $TOM_CAMPAIGN_INDEX"
+  echo
+
+  if [[ -d "$TOM_LOGS_MODAL_ROOT" ]]; then
+    echo "----- synced Modal campaigns (logs/modal/) -----"
+    find "$TOM_LOGS_MODAL_ROOT" -mindepth 1 -maxdepth 1 -type d ! -name '.DS_Store' -print 2>/dev/null | sort | while read -r dir; do
+      echo "  $(basename "$dir")/"
+    done
+  fi
+
+  echo
+  echo "----- Modal warm-starts (active) -----"
+  for family in auxhead-clear auxhead-lite; do
+    root="$TOM_MODAL_WARMSTART_ROOT/$family"
+    if [[ -d "$root" ]]; then
+      echo "  $family/ -> $root"
+      find "$root" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | sort | while read -r sub; do
+        echo "    $(basename "$sub")/"
+      done
+    fi
+  done
+
+  echo
+  echo "See docs/CAMPAIGN_INDEX.md for campaign_id mapping and archived long-runs."
+}
+
+echo "Results Mode"
+echo "  repo: $TOM_REPO_ROOT"
+echo
+
+if [[ "$modal_only" -eq 1 ]]; then
+  show_modal_results
+else
+  show_local_results
+  if [[ "$show_modal" -eq 1 ]]; then
+    echo
+    echo "========================================"
+    echo
+    show_modal_results
+  fi
+fi
+
+if [[ "$open_note" -eq 1 && -f "$incumbent_note" ]]; then
+  if command -v cursor >/dev/null 2>&1; then
+    cursor "$incumbent_note" >/dev/null 2>&1 || true
+  elif [[ "$(uname -s)" == "Darwin" ]] && open -a "Cursor" "$incumbent_note" >/dev/null 2>&1; then
+    :
+  fi
+fi
